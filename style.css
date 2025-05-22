@@ -4,36 +4,36 @@
 /* --- Root Variables --- */
 :root {
     --primary-font: 'Lato', Arial, sans-serif;
-    --bg-color: #f7f9fc; /* Very light, almost white-blueish background */
+    --bg-color: #f7f9fc;
     --card-bg-color: #ffffff;
-    --text-color: #34495e; /* Dark, slightly desaturated blue/grey for text */
-    --heading-color: #2c3e50; /* Slightly darker for headings */
-    --accent-color: #3498db; /* A clear, professional blue */
-    --accent-hover-color: #2980b9; /* Darker blue for hover */
+    --text-color: #34495e;
+    --heading-color: #2c3e50;
+    --accent-color: #3498db;
+    --accent-hover-color: #2980b9;
     --border-color: #e8ecf1;
-    --shadow-color: rgba(44, 62, 80, 0.15); /* Softer shadow color */
+    --shadow-color: rgba(44, 62, 80, 0.15);
     --nav-link-color: #566573;
 }
 
 /* --- Global Styles --- */
 body {
     font-family: var(--primary-font);
-    line-height: 1.75; /* Increased for readability */
+    line-height: 1.75;
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
     font-weight: 400;
-    font-size: 16px; /* Base font size */
-    -webkit-font-smoothing: antialiased; /* Smoother fonts on WebKit browsers */
-    -moz-osx-font-smoothing: grayscale; /* Smoother fonts on Firefox */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* --- Header --- */
 header {
     background: var(--card-bg-color);
     color: var(--heading-color);
-    padding: 2rem 1rem; /* More padding */
+    padding: 2rem 1rem;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 8px var(--shadow-color);
@@ -44,22 +44,30 @@ header {
 
 header h1 {
     margin: 0 0 0.5rem 0;
-    font-size: 2.5rem; /* Larger name */
-    font-weight: 700; /* Bold name */
+    font-size: 2.5rem;
+    font-weight: 700;
     color: var(--heading-color);
-    letter-spacing: 1px; /* Slight letter spacing */
+    letter-spacing: 1px;
 }
 
+/* DESKTOP NAVIGATION STYLES */
 header nav {
     margin-top: 0.5rem;
+    /* For desktop, the default block/inline behavior of <a> tags
+       within a text-centered parent (header) will often suffice for horizontal.
+       Or, more explicitly: */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows wrapping if many items or narrow desktop window */
 }
 
 header nav a {
     color: var(--nav-link-color);
     text-decoration: none;
     padding: 0.6rem 1.2rem;
-    margin: 0 0.3rem;
-    border-radius: 25px; /* Pill-shaped links */
+    margin: 0.2rem 0.3rem; /* Small margin for spacing, especially if wrapped */
+    border-radius: 25px;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-weight: 400;
     font-size: 0.95rem;
@@ -67,30 +75,29 @@ header nav a {
 
 header nav a:hover {
     background-color: var(--accent-color);
-    color: var(--card-bg-color); /* White text on hover */
+    color: var(--card-bg-color);
     text-decoration: none;
 }
-header nav a.active { /* Add class="active" to current page link if using JS */
+header nav a.active {
     background-color: var(--accent-color);
     color: var(--card-bg-color);
     font-weight: 700;
 }
 
-
 /* --- Main Content Area --- */
 main {
     padding: 40px 20px;
-    max-width: 980px; /* Slightly wider for more content space */
+    max-width: 980px;
     margin: 40px auto;
-    background-color: transparent; /* Main area doesn't need its own background if sections are cards */
+    background-color: transparent;
 }
 
 /* --- Section Styling (as cards) --- */
 section {
     background-color: var(--card-bg-color);
     margin-bottom: 2.5rem;
-    padding: 2rem 2.5rem; /* More padding inside sections */
-    border-radius: 12px; /* More pronounced rounded corners */
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
     box-shadow: 0 5px 15px var(--shadow-color);
     border: 1px solid var(--border-color);
 }
@@ -98,7 +105,6 @@ section:last-child {
     margin-bottom: 0;
 }
 
-/* Specific Hero Section on Homepage */
 #hero {
     text-align: center;
     padding: 3rem 1.5rem;
@@ -108,61 +114,54 @@ section:last-child {
     color: var(--text-color);
     font-weight: 400;
     margin-top: 0;
-    border-bottom: none; /* Remove default H2 border for hero subtitle */
+    border-bottom: none;
 }
-#hero h2::after { /* Remove underline for hero h2 */
+#hero h2::after {
     display: none;
 }
-
 #hero p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
 
-/* --- Headings --- */
-h2 { /* Section Titles */
+h2 {
     color: var(--heading-color);
     padding-bottom: 0.75rem;
-    margin-top: 0; /* Remove top margin if section has padding */
+    margin-top: 0;
     margin-bottom: 1.8rem;
-    font-size: 1.9rem; /* Larger section titles */
+    font-size: 1.9rem;
     font-weight: 700;
-    position: relative; /* For the underline pseudo-element */
-    text-align: left; /* Default to left */
+    position: relative;
+    text-align: left;
 }
-/* Elegant underline for H2 */
 h2::after {
     content: '';
     display: block;
-    width: 70px; /* Shorter underline */
+    width: 70px;
     height: 3px;
     background-color: var(--accent-color);
     position: absolute;
     bottom: 0;
-    left: 0; /* Aligned left */
+    left: 0;
 }
-/* Center H2 underline if text is centered */
 section[style*="text-align: center"] h2::after {
     left: 50%;
     transform: translateX(-50%);
 }
 
-
-h3 { /* Sub-section Titles */
+h3 {
     color: var(--heading-color);
     font-size: 1.45rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: 700;
 }
-.job h3, .skills-grid section h3 { /* More specific for nested h3s */
+.job h3, .skills-grid section h3 {
     font-size: 1.3rem;
     color: var(--accent-color);
     margin-top: 0;
 }
 
-
-/* --- Links --- */
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -173,17 +172,16 @@ a:hover {
     text-decoration: underline;
 }
 
-/* --- Button Styling --- */
 .button {
     display: inline-block;
     background: var(--accent-color);
     color: #ffffff;
-    padding: 14px 30px; /* Larger button */
+    padding: 14px 30px;
     text-decoration: none;
-    border-radius: 30px; /* More rounded button */
+    border-radius: 30px;
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4); /* Shadow related to accent color */
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
     font-size: 1rem;
     border: none;
 }
@@ -191,48 +189,46 @@ a:hover {
     background: var(--accent-hover-color);
     color: #ffffff;
     text-decoration: none;
-    transform: translateY(-3px); /* More lift */
+    transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(41, 128, 185, 0.5);
 }
 
-/* --- Experience Section --- */
 .job {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px dashed var(--border-color); /* Dashed separator */
+    border-bottom: 1px dashed var(--border-color);
 }
 .job:last-child {
     border-bottom: none;
     padding-bottom: 0;
 }
-.job p strong { /* Company Name */
+.job p strong {
     font-weight: 700;
     color: var(--heading-color);
     font-size: 1.1rem;
 }
-.job p em { /* Dates */
-    color: #7f8c8d; /* Muted grey for dates */
+.job p em {
+    color: #7f8c8d;
     font-size: 0.9rem;
-    display: block; /* Dates on new line */
+    display: block;
     margin-bottom: 0.5rem;
 }
 .job ul {
     margin-top: 0.5rem;
-    padding-left: 20px; /* Align with text */
+    padding-left: 20px;
 }
 .job ul li {
     margin-bottom: 0.4rem;
     color: var(--text-color);
 }
 
-/* --- Skills Section --- */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
-.skills-grid section { /* Individual skill categories */
-    background-color: var(--bg-color); /* Slightly different bg for skill cards */
+.skills-grid section {
+    background-color: var(--bg-color);
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.07);
@@ -243,44 +239,41 @@ a:hover {
     color: var(--text-color);
 }
 
-/* --- Lists (ul, ol) --- */
 ul, ol {
     padding-left: 20px;
     margin-top: 0.5rem;
 }
 ul li, ol li {
-    margin-bottom: 0.6rem; /* Slightly more spacing */
+    margin-bottom: 0.6rem;
     color: var(--text-color);
 }
-/* Styling for publication lists */
 #research ol li, #research ul li {
     margin-bottom: 0.8rem;
 }
-#research ol li strong, #research ul li strong { /* Emphasize your name */
+#research ol li strong, #research ul li strong {
     font-weight: 700;
     color: var(--heading-color);
 }
 
-/* --- Footer --- */
 footer {
     text-align: center;
     padding: 2.5rem 1rem;
-    background: var(--heading-color); /* Darker footer */
-    color: #bdc3c7; /* Light grey text on dark */
+    background: var(--heading-color);
+    color: #bdc3c7;
     margin-top: 40px;
     font-size: 0.9rem;
 }
 footer a {
-    color: var(--accent-color); /* Accent color for links in footer */
+    color: var(--accent-color);
     text-decoration: none;
 }
 footer a:hover {
-    color: #ffffff; /* White on hover */
+    color: #ffffff;
     text-decoration: underline;
 }
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 992px) { /* Tablet and larger mobile */
+@media (max-width: 992px) {
     main {
         padding: 30px 15px;
         margin: 30px auto;
@@ -290,37 +283,37 @@ footer a:hover {
     }
 }
 
-@media (max-width: 768px) { /* Tablet portrait and mobile landscape/portrait */
+@media (max-width: 768px) {
     body {
         font-size: 15px;
     }
 
     header {
-        position: static; /* <<< KEY FIX: Makes header scroll with page on mobile */
-        padding: 1rem;    /* Adjust padding for smaller screens */
-        box-shadow: 0 1px 3px var(--shadow-color); /* Softer shadow */
+        position: static; /* KEY FIX: Makes header scroll with page on mobile */
+        padding: 1rem;
+        box-shadow: 0 1px 3px var(--shadow-color);
     }
 
     header h1 {
         font-size: 1.8rem;
-        margin-bottom: 0.75rem; /* Space below h1 if nav stacks directly under */
+        margin-bottom: 0.75rem;
     }
 
-    header nav { /* Ensure nav stacks correctly and centrally */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    header nav {
+        display: flex; /* Explicitly use flex */
+        flex-direction: column; /* KEY: Stack navigation items vertically */
+        align-items: center; /* Center stacked items */
         width: 100%;
     }
 
     header nav a {
-        padding: 0.75rem 1rem; /* Slightly larger padding for easier tapping */
-        font-size: 1rem;     /* Ensure readable font size */
-        width: 90%;          /* Make links wide for easy tapping */
-        max-width: 320px;    /* Prevent them from being overly wide on tablets */
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        width: 90%; /* Make links wide for easy tapping */
+        max-width: 320px; /* Prevent them from being excessively wide */
         text-align: center;
-        margin: 0.3rem 0;   /* Vertical spacing between links */
-        border-radius: 8px;  /* More button-like */
+        margin: 0.3rem 0; /* Vertical spacing between stacked links */
+        border-radius: 8px; /* More button-like when stacked */
     }
 
     main {
@@ -338,23 +331,6 @@ footer a:hover {
         font-size: 0.95rem;
     }
     .skills-grid {
-        grid-template-columns: 1fr; /* Stack skills */
+        grid-template-columns: 1fr;
     }
 }
-
-/* No need for a separate max-width: 480px for header if 768px covers it well.
-   If further fine-tuning is needed for very small screens, you can add it back.
-   Example for very small screen specific adjustments (if needed):
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.6rem;
-    }
-    header nav a {
-        width: 95%;
-        font-size: 0.95rem;
-    }
-    section {
-        padding: 1.5rem 1rem;
-    }
-}
-*/
