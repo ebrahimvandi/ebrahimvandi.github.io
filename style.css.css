@@ -1,0 +1,235 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Lato', Arial, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Lighter, softer background */
+    color: #343a40; /* Darker gray for better readability */
+    font-weight: 400;
+}
+
+/* Header Styling */
+header {
+    background: #ffffff; /* White background for a cleaner look */
+    color: #343a40;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 1px solid #e9ecef; /* Subtle border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Soft shadow */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem; /* Slightly reduced for elegance */
+    font-weight: 700; /* Bold for the name */
+    color: #2c3e50; /* A deep, professional blue/charcoal */
+}
+
+header nav {
+    margin-top: 0.75rem;
+}
+
+header nav a {
+    color: #555b6e; /* Muted color for nav links */
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 400;
+}
+
+header nav a:hover, header nav a.active { /* Assuming you might add an active class with JS later */
+    background-color: #e9ecef; /* Subtle hover background */
+    color: #34568B; /* Accent color on hover */
+    text-decoration: none;
+}
+
+/* Main Content Area */
+main {
+    padding: 30px 20px;
+    max-width: 900px; /* Slightly narrower for better readability on wider screens */
+    margin: 30px auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08); /* Slightly more pronounced shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 2.5rem; /* Increased spacing between sections */
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f3f5; /* Lighter border within the main content */
+}
+
+section:last-child {
+    border-bottom: none;
+    margin-bottom: 0; /* No extra margin for the last section */
+    padding-bottom: 0.5rem;
+}
+
+/* Headings */
+h2 {
+    color: #34568B; /* Accent color for main section headings */
+    border-bottom: 2px solid #e0e6ef;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem; /* More space after H2 */
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+h3 {
+    color: #495057; /* Darker gray for subheadings */
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+}
+
+/* Links */
+a {
+    color: #34568B; /* Consistent accent color for links */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2a4365; /* Darker shade on hover */
+    text-decoration: underline;
+}
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    background: #34568B; /* Accent color */
+    color: #ffffff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button:hover {
+    background: #2a4365; /* Darker shade */
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Experience Job Article Styling */
+.job {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid #34568B; /* Accent border for job entries */
+}
+.job h3 {
+    margin-top: 0; /* Adjust h3 margin within job */
+}
+.job p strong {
+    font-weight: 700;
+    color: #343a40;
+}
+.job p em { /* For dates */
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for better fit */
+    gap: 20px;
+}
+
+.skills-grid section { /* Style individual skill categories */
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+    border-bottom: none; /* Remove section border */
+    margin-bottom: 0; /* Remove section margin */
+}
+.skills-grid section h3 {
+    font-size: 1.2rem;
+    color: #34568B;
+    margin-top: 0;
+    border-bottom: 1px solid #e0e6ef;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Lists (ul, ol) */
+ul, ol {
+    padding-left: 25px; /* Standard padding */
+    margin-top: 0.5rem;
+}
+ul li, ol li {
+    margin-bottom: 0.5rem; /* Spacing between list items */
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: #343a40; /* Darker footer for contrast */
+    color: #adb5bd; /* Lighter text on dark background */
+    margin-top: 30px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #e9ecef; /* Light link color on dark background */
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header nav a {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.9rem;
+    }
+    main {
+        padding: 20px 15px;
+        margin: 20px auto;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header nav a {
+        margin-bottom: 0.3rem;
+        width: 80%;
+        text-align: center;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr; /* Stack skills on very small screens */
+    }
+}
