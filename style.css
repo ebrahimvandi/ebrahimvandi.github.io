@@ -1,7 +1,7 @@
 /* Import Google Font - Lato for its clean, professional look */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 
-/* --- Root Variables (Optional, but good for consistency) --- */
+/* --- Root Variables --- */
 :root {
     --primary-font: 'Lato', Arial, sans-serif;
     --bg-color: #f7f9fc; /* Very light, almost white-blueish background */
@@ -37,7 +37,7 @@ header {
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 8px var(--shadow-color);
-    position: sticky; /* Optional: makes header stick on scroll */
+    position: sticky; /* Sticky by default for larger screens */
     top: 0;
     z-index: 1000;
 }
@@ -110,6 +110,10 @@ section:last-child {
     margin-top: 0;
     border-bottom: none; /* Remove default H2 border for hero subtitle */
 }
+#hero h2::after { /* Remove underline for hero h2 */
+    display: none;
+}
+
 #hero p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
@@ -137,8 +141,8 @@ h2::after {
     bottom: 0;
     left: 0; /* Aligned left */
 }
-/* Center H2 underline if text is centered (e.g. in hero section) */
-section[style*="text-align: center"] h2::after, #hero h2::after {
+/* Center H2 underline if text is centered */
+section[style*="text-align: center"] h2::after {
     left: 50%;
     transform: translateX(-50%);
 }
@@ -276,7 +280,7 @@ footer a:hover {
 }
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 992px) {
+@media (max-width: 992px) { /* Tablet and larger mobile */
     main {
         padding: 30px 15px;
         margin: 30px auto;
@@ -286,18 +290,41 @@ footer a:hover {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px) { /* Tablet portrait and mobile landscape/portrait */
     body {
         font-size: 15px;
     }
+
+    header {
+        position: static; /* <<< KEY FIX: Makes header scroll with page on mobile */
+        padding: 1rem;    /* Adjust padding for smaller screens */
+        box-shadow: 0 1px 3px var(--shadow-color); /* Softer shadow */
+    }
+
     header h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.75rem; /* Space below h1 if nav stacks directly under */
     }
+
+    header nav { /* Ensure nav stacks correctly and centrally */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
     header nav a {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+        padding: 0.75rem 1rem; /* Slightly larger padding for easier tapping */
+        font-size: 1rem;     /* Ensure readable font size */
+        width: 90%;          /* Make links wide for easy tapping */
+        max-width: 320px;    /* Prevent them from being overly wide on tablets */
+        text-align: center;
+        margin: 0.3rem 0;   /* Vertical spacing between links */
+        border-radius: 8px;  /* More button-like */
     }
+
     main {
+        padding: 20px 15px;
         margin: 20px auto;
     }
     h2 {
@@ -315,21 +342,19 @@ footer a:hover {
     }
 }
 
+/* No need for a separate max-width: 480px for header if 768px covers it well.
+   If further fine-tuning is needed for very small screens, you can add it back.
+   Example for very small screen specific adjustments (if needed):
 @media (max-width: 480px) {
-    header {
-        padding: 1.5rem 1rem;
-    }
-    header nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    header h1 {
+        font-size: 1.6rem;
     }
     header nav a {
-        margin-bottom: 0.5rem;
-        width: 90%;
-        text-align: center;
+        width: 95%;
+        font-size: 0.95rem;
     }
     section {
-        padding: 1.5rem 1rem; /* Less padding on small screens */
+        padding: 1.5rem 1rem;
     }
 }
+*/
