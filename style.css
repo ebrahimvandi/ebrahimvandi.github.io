@@ -37,7 +37,7 @@ header {
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     box-shadow: 0 2px 8px var(--shadow-color);
-    position: sticky; /* Sticky by default for larger screens */
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -50,7 +50,7 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* DESKTOP NAVIGATION STYLES (Global Scope) */
+/* DESKTOP NAVIGATION STYLES */
 header nav {
     margin-top: 0.5rem;
     display: flex;
@@ -74,7 +74,6 @@ header nav a {
 header nav a:hover {
     background-color: var(--accent-color);
     color: var(--card-bg-color);
-    text-decoration: none;
 }
 header nav a.active {
     background-color: var(--accent-color);
@@ -82,13 +81,18 @@ header nav a.active {
     font-weight: 700;
 }
 
+/* Separator between nav links */
+header nav a + a::before {
+    content: "│";
+    margin: 0 0.5rem;
+    color: var(--nav-link-color);
+}
 
 /* --- Main Content Area --- */
 main {
     padding: 40px 20px;
     max-width: 980px;
     margin: 40px auto;
-    background-color: transparent;
 }
 section {
     background-color: var(--card-bg-color);
@@ -103,80 +107,69 @@ section:last-child { margin-bottom: 0; }
 /* --- Hero Section Specifics --- */
 #hero {
     text-align: center;
-    padding: 3rem 1.5rem 4rem 1.5rem; /* Increased bottom padding for more space */
-    background-color: var(--card-bg-color); /* Ensure hero has its own distinct card background */
-    border-radius: 12px; /* Match other sections if desired */
-    box-shadow: 0 5px 15px var(--shadow-color); /* Match other sections */
-    border: 1px solid var(--border-color); /* Match other sections */
-    margin-bottom: 2.5rem; /* Spacing like other sections */
+    padding: 6rem 1rem;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover-color));
+    color: var(--card-bg-color);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
 }
 
 #hero h2 {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    font-weight: 400;
-    margin-top: 0;
-    margin-bottom: 1rem; /* Space below subtitle */
-    border-bottom: none; /* Ensure no general h2 border here */
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
-#hero h2::after { /* Ensure no general h2 underline here */
-    display: none;
-}
-
-#hero p:first-of-type { /* The main descriptive paragraph */
-    font-size: 1.15rem;
+#hero p:first-of-type {
+    font-size: 1.25rem;
     line-height: 1.8;
-    margin-bottom: 2rem; /* More space before the button */
-    max-width: 700px; /* Constrain width for readability */
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 2rem;
+    max-width: 700px;
+    opacity: 0.9;
 }
-
-#hero .button { /* Style for the main "Explore My Work" button */
-    margin-bottom: 2.5rem; /* Increased space below the main button */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+#hero .button {
+    background-color: var(--card-bg-color);
+    color: var(--accent-hover-color);
+    padding: 0.75rem 1.75rem;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
 }
-
-/* #hero .button:hover {
-    border: 2px solid var(--accent-hover-color); 
-    box-shadow: 0 8px 15px rgba(41, 128, 185, 0.4); 
-} */
-/* Existing button hover from global .button:hover is likely sufficient */
-
+#hero .button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
 
 .hero-secondary-links {
-    margin-top: 1.5rem; /* Space above these links */
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
-    gap: 1rem; /* Space between the links */
+    flex-wrap: wrap;
+    gap: 1rem;
 }
-
 .secondary-link {
     display: inline-block;
-    padding: 0.75rem 1.5rem; /* Generous padding */
-    border: 1px solid var(--border-color); /* Subtle border */
-    border-radius: 25px; /* Pill shape */
-    color: var(--nav-link-color); /* Using nav link color for subtlety */
-    font-size: 0.9rem;
-    font-weight: 400;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--card-bg-color);
+    border-radius: 25px;
+    color: var(--card-bg-color);
+    background: rgba(255,255,255,0.2);
     text-decoration: none;
-    background-color: var(--card-bg-color); /* Match card background */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Very subtle shadow */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth, refined transition */
+    font-size: 0.9rem;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .secondary-link:hover, .secondary-link:focus {
-    color: var(--card-bg-color); /* White text */
-    background-color: var(--accent-color); /* Use accent color for background */
-    border-color: var(--accent-color); /* Match border to background */
-    transform: translateY(-3px) scale(1.03); /* Lift and slightly enlarge */
-    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3); /* More pronounced, colored shadow */
-    outline: none; /* Remove focus outline if you style focus state similarly */
+    background: var(--card-bg-color);
+    color: var(--accent-hover-color);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 12px rgba(52,152,219,0.3);
 }
 
-/* --- General Content Headings (h2, h3) --- */
+/* --- General Content Headings --- */
 h2 {
     color: var(--heading-color);
     padding-bottom: 0.75rem;
@@ -215,7 +208,7 @@ h3 {
     margin-top: 0;
 }
 
-/* --- General Links --- */
+/* --- General Links & Buttons --- */
 a {
     color: var(--accent-color);
     text-decoration: none;
@@ -223,16 +216,13 @@ a {
 }
 a:hover {
     color: var(--accent-hover-color);
-    text-decoration: underline;
 }
 
-/* --- General Button Styling --- */
 .button {
     display: inline-block;
     background: var(--accent-color);
     color: #ffffff;
     padding: 14px 30px;
-    text-decoration: none;
     border-radius: 30px;
     font-weight: 700;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -242,64 +232,120 @@ a:hover {
 }
 .button:hover {
     background: var(--accent-hover-color);
-    color: #ffffff;
-    text-decoration: none;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(41, 128, 185, 0.5);
 }
 
 /* --- Experience Section --- */
-.job { margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px dashed var(--border-color); }
-.job:last-child { border-bottom: none; padding-bottom: 0; }
-.job p strong { font-weight: 700; color: var(--heading-color); font-size: 1.1rem; }
-.job p em { color: #7f8c8d; font-size: 0.9rem; display: block; margin-bottom: 0.5rem; }
-.job ul { margin-top: 0.5rem; padding-left: 20px; }
-.job ul li { margin-bottom: 0.4rem; color: var(--text-color); }
-
-/* --- Skills Section --- */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.skills-grid section { background-color: var(--bg-color); padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.07); border: 1px solid var(--border-color); }
-.skills-grid section p { font-size: 0.95rem; color: var(--text-color); }
-
-/* --- Lists (ul, ol) --- */
-ul, ol { padding-left: 20px; margin-top: 0.5rem; }
-ul li, ol li { margin-bottom: 0.6rem; color: var(--text-color); }
-#research ol li, #research ul li { margin-bottom: 0.8rem; }
-#research ol li strong, #research ul li strong { font-weight: 700; color: var(--heading-color); }
-
-/* --- Footer --- */
-footer { text-align: center; padding: 2.5rem 1rem; background: var(--heading-color); color: #bdc3c7; margin-top: 40px; font-size: 0.9rem; }
-footer a { color: var(--accent-color); text-decoration: none; }
-footer a:hover { color: #ffffff; text-decoration: underline; }
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 992px) { /* Tablet and larger mobile */
-    main { padding: 30px 15px; margin: 30px auto; }
-    section { padding: 1.5rem; }
-    #hero { padding: 2.5rem 1rem 3rem 1rem; } /* Adjust hero padding */
+.job {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+.job:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.job p strong {
+    font-weight: 700;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+}
+.job p em {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.job ul {
+    margin-top: 0.5rem;
+    padding-left: 20px;
+}
+.job ul li {
+    margin-bottom: 0.4rem;
+    color: var(--text-color);
 }
 
-@media (max-width: 768px) { /* Tablet portrait and mobile landscape/portrait */
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+.skills-grid section {
+    background-color: var(--bg-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
+    border: 1px solid var(--border-color);
+}
+.skills-grid section p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+/* --- Lists --- */
+ul, ol {
+    padding-left: 20px;
+    margin-top: 0.5rem;
+}
+ul li, ol li {
+    margin-bottom: 0.6rem;
+    color: var(--text-color);
+}
+#research ol li, #research ul li {
+    margin-bottom: 0.8rem;
+}
+#research ol li strong, #research ul li strong {
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    background: var(--heading-color);
+    color: #bdc3c7;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+footer a:hover {
+    color: #ffffff;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    main { padding: 30px 15px; margin: 30px auto; }
+    section { padding: 1.5rem; }
+    #hero { padding: 4rem 1rem; }
+    #hero h2 { font-size: 2rem; }
+    #hero p:first-of-type { font-size: 1.1rem; }
+    #hero .button { padding: 0.6rem 1.5rem; }
+    .hero-secondary-links { gap: 0.75rem; }
+}
+
+@media (max-width: 768px) {
     body { font-size: 15px; }
 
     header {
-        position: static; /* KEY FIX: Makes header scroll with page on mobile */
+        position: static;
         padding: 1rem;
         box-shadow: 0 1px 3px var(--shadow-color);
     }
-
     header h1 {
         font-size: 1.8rem;
         margin-bottom: 0.75rem;
     }
-
-    /* MOBILE NAVIGATION STYLES */
     header nav {
-        flex-direction: column; /* KEY: Stack navigation items vertically */
+        flex-direction: column;
         align-items: center;
         width: 100%;
     }
-
     header nav a {
         padding: 0.75rem 1rem;
         font-size: 1rem;
@@ -311,11 +357,12 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
     }
 
     main { padding: 20px 15px; margin: 20px auto; }
-    #hero { padding: 2rem 1rem 2.5rem 1rem; } /* Further adjust hero padding */
-    #hero .button { margin-bottom: 2rem; }
-    .hero-secondary-links { gap: 0.75rem; }
-    .secondary-link { padding: 0.6rem 1.2rem; font-size: 0.85rem; }
-
+    #hero { padding: 3rem 1rem; }
+    #hero h2 { font-size: 1.8rem; }
+    #hero p:first-of-type { font-size: 1rem; }
+    #hero .button { margin-bottom: 1.5rem; }
+    .hero-secondary-links { flex-direction: column; gap: 0.5rem; }
+    .secondary-link { padding: 0.5rem 1rem; font-size: 0.85rem; }
 
     h2 { font-size: 1.7rem; }
     h3 { font-size: 1.3rem; }
