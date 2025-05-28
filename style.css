@@ -1,371 +1,78 @@
-/* Import Google Font - Lato for its clean, professional look */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* --- Root Variables --- */
-:root {
-    --primary-font: 'Lato', Arial, sans-serif;
-    --bg-color: #f7f9fc;
-    --card-bg-color: #ffffff;
-    --text-color: #34495e;
-    --heading-color: #2c3e50;
-    --accent-color: #3498db;
-    --accent-hover-color: #2980b9;
-    --border-color: #e8ecf1;
-    --shadow-color: rgba(44, 62, 80, 0.15);
-    --nav-link-color: #566573;
-}
+    <!-- === SEO META TAGS START === -->
+    <title>Alireza Ebrahimvandi | Data Scientist | PhD Industrial & Systems Engineering</title>
+    <meta name="description" content="Dr. Alireza Ebrahimvandi, PhD in Industrial & Systems Engineering. Data Scientist specializing in AI, machine learning, and operations research for healthcare systems innovation.">
+    <meta name="keywords" content="Alireza Ebrahimvandi, Data Scientist, PhD, Industrial Engineering, Systems Engineering, Operations Research, Healthcare AI, Machine Learning, UCSF, Virginia Tech, Healthcare Innovation, Predictive Modeling, Simulation">
+    <link rel="canonical" href="https://ebrahimvandi.github.io/">
 
-/* --- Global Styles --- */
-body {
-    font-family: var(--primary-font);
-    line-height: 1.75;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-weight: 400;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+    <!-- Open Graph / Facebook / LinkedIn Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ebrahimvandi.github.io/">
+    <meta property="og:title" content="Alireza Ebrahimvandi | Data Scientist | PhD Industrial & Systems Engineering">
+    <meta property="og:description" content="Dr. Alireza Ebrahimvandi, PhD. Data Scientist specializing in AI, machine learning, and operations research for healthcare systems innovation.">
+    <!-- <meta property="og:image" content="https://ebrahimvandi.github.io/your-professional-photo.jpg"> -->
+    <meta property="og:site_name" content="Alireza Ebrahimvandi">
 
-/* --- Header --- */
-header {
-    background: var(--card-bg-color);
-    color: var(--heading-color);
-    padding: 2rem 1rem;
-    text-align: center;
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: 0 2px 8px var(--shadow-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ebrahimvandi.github.io/">
+    <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
+    <meta name="twitter:title" content="Alireza Ebrahimvandi | Data Scientist | PhD">
+    <meta name="twitter:description" content="Dr. Alireza Ebrahimvandi, PhD. Data Scientist specializing in AI, machine learning, and operations research for healthcare systems innovation.">
+    <!-- <meta name="twitter:image" content="https://ebrahimvandi.github.io/your-professional-photo.jpg"> -->
+    <!-- === SEO META TAGS END === -->
 
-header h1 {
-    margin: 0 0 0.5rem 0;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--heading-color);
-    letter-spacing: 1px;
-}
+    <link rel="stylesheet" href="style.css">
+    <!-- Import Google Font - Lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>ALIREZA EBRAHIMVANDI</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About</a> |
+            <a href="experience.html">Experience</a> |
+            <a href="skills.html">Skills</a> |
+            <a href="research.html">Research</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-/* DESKTOP NAVIGATION STYLES */
-header nav {
-    margin-top: 0.5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
+    <main>
+        <section id="hero">
+            <h2>PhD in Industrial & Systems Engineering | Data Scientist</h2>
+            <p>Leveraging AI, Machine Learning, and Operations Research to transform healthcare systems and improve patient outcomes. Passionate about developing data-driven solutions for complex real-world challenges.</p>
+            <p><a href="experience.html" class="button">Explore My Work</a></p>
 
-header nav a {
-    color: var(--nav-link-color);
-    text-decoration: none;
-    padding: 0.6rem 1.2rem;
-    margin: 0.2rem 0.3rem;
-    border-radius: 25px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: 400;
-    font-size: 0.95rem;
-}
+            <div class="hero-secondary-links">
+                <a href="https://www.linkedin.com/in/ebrahimvandi/" target="_blank" rel="noopener noreferrer" class="secondary-link">LinkedIn Profile</a>
+                <a href="https://healthinformatics.ucsf.edu/analytics-innovations" target="_blank" rel="noopener noreferrer" class="secondary-link">UCSF Health Analytics & Innovations</a>
+                <a href="https://scholar.google.com/citations?user=nIFyu6kAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="secondary-link">Google Scholar Profile</a>
+            </div>
+        </section>
 
-header nav a:hover {
-    background-color: var(--accent-color);
-    color: var(--card-bg-color);
-}
-header nav a.active {
-    background-color: var(--accent-color);
-    color: var(--card-bg-color);
-    font-weight: 700;
-}
+        <section id="expertise">
+            <h3>My Expertise</h3>
+            <ul>
+                <li><strong>Healthcare Data Science:</strong> Developing predictive models, optimizing patient flow, and enhancing decision-making in medical systems.</li>
+                <li><strong>Machine Learning & AI:</strong> Building and deploying AI-powered tools, including LLMs, for applications like clinical trial matching and risk prediction.</li>
+                <li><strong>Operations Research & Simulation:</strong> Applying advanced simulation and optimization techniques to improve system efficiency.</li>
+            </ul>
+        </section>
+    </main>
 
-/* Separator between nav links */
-header nav a + a::before {
-    content: "│";
-    margin: 0 0.5rem;
-    color: var(--nav-link-color);
-}
-
-/* --- Main Content Area --- */
-main {
-    padding: 40px 20px;
-    max-width: 980px;
-    margin: 40px auto;
-}
-section {
-    background-color: var(--card-bg-color);
-    margin-bottom: 2.5rem;
-    padding: 2rem 2.5rem;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px var(--shadow-color);
-    border: 1px solid var(--border-color);
-}
-section:last-child { margin-bottom: 0; }
-
-/* --- Hero Section Specifics --- */
-#hero {
-    text-align: center;
-    padding: 6rem 1rem;
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-hover-color));
-    color: var(--card-bg-color);
-    border-radius: 12px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2.5rem;
-}
-
-#hero h2 {
-    font-size: 2.5rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-#hero p:first-of-type {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    margin: 0 auto 2rem;
-    max-width: 700px;
-    opacity: 0.9;
-}
-#hero .button {
-    background-color: var(--card-bg-color);
-    color: var(--accent-hover-color);
-    padding: 0.75rem 1.75rem;
-    font-weight: 700;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 2rem;
-}
-#hero .button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-.hero-secondary-links {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-.secondary-link {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--card-bg-color);
-    border-radius: 25px;
-    color: var(--card-bg-color);
-    background: rgba(255,255,255,0.2);
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-}
-.secondary-link:hover, .secondary-link:focus {
-    background: var(--card-bg-color);
-    color: var(--accent-hover-color);
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 6px 12px rgba(52,152,219,0.3);
-}
-
-/* --- General Content Headings --- */
-h2 {
-    color: var(--heading-color);
-    padding-bottom: 0.75rem;
-    margin-top: 0;
-    margin-bottom: 1.8rem;
-    font-size: 1.9rem;
-    font-weight: 700;
-    position: relative;
-    text-align: left;
-}
-h2::after {
-    content: '';
-    display: block;
-    width: 70px;
-    height: 3px;
-    background-color: var(--accent-color);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-section[style*="text-align: center"] h2::after {
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-h3 {
-    color: var(--heading-color);
-    font-size: 1.45rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-.job h3, .skills-grid section h3 {
-    font-size: 1.3rem;
-    color: var(--accent-color);
-    margin-top: 0;
-}
-
-/* --- General Links & Buttons --- */
-a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-}
-a:hover {
-    color: var(--accent-hover-color);
-}
-
-.button {
-    display: inline-block;
-    background: var(--accent-color);
-    color: #ffffff;
-    padding: 14px 30px;
-    border-radius: 30px;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
-    font-size: 1rem;
-    border: none;
-}
-.button:hover {
-    background: var(--accent-hover-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(41, 128, 185, 0.5);
-}
-
-/* --- Experience Section --- */
-.job {
-    margin-bottom: 2rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px dashed var(--border-color);
-}
-.job:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-.job p strong {
-    font-weight: 700;
-    color: var(--heading-color);
-    font-size: 1.1rem;
-}
-.job p em {
-    color: #7f8c8d;
-    font-size: 0.9rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-.job ul {
-    margin-top: 0.5rem;
-    padding-left: 20px;
-}
-.job ul li {
-    margin-bottom: 0.4rem;
-    color: var(--text-color);
-}
-
-/* --- Skills Section --- */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-}
-.skills-grid section {
-    background-color: var(--bg-color);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.07);
-    border: 1px solid var(--border-color);
-}
-.skills-grid section p {
-    font-size: 0.95rem;
-    color: var(--text-color);
-}
-
-/* --- Lists --- */
-ul, ol {
-    padding-left: 20px;
-    margin-top: 0.5rem;
-}
-ul li, ol li {
-    margin-bottom: 0.6rem;
-    color: var(--text-color);
-}
-#research ol li, #research ul li {
-    margin-bottom: 0.8rem;
-}
-#research ol li strong, #research ul li strong {
-    font-weight: 700;
-    color: var(--heading-color);
-}
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    padding: 2.5rem 1rem;
-    background: var(--heading-color);
-    color: #bdc3c7;
-    margin-top: 40px;
-    font-size: 0.9rem;
-}
-footer a {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-footer a:hover {
-    color: #ffffff;
-}
-
-/* --- Responsive Adjustments --- */
-@media (max-width: 992px) {
-    main { padding: 30px 15px; margin: 30px auto; }
-    section { padding: 1.5rem; }
-    #hero { padding: 4rem 1rem; }
-    #hero h2 { font-size: 2rem; }
-    #hero p:first-of-type { font-size: 1.1rem; }
-    #hero .button { padding: 0.6rem 1.5rem; }
-    .hero-secondary-links { gap: 0.75rem; }
-}
-
-@media (max-width: 768px) {
-    body { font-size: 15px; }
-
-    header {
-        position: static;
-        padding: 1rem;
-        box-shadow: 0 1px 3px var(--shadow-color);
-    }
-    header h1 {
-        font-size: 1.8rem;
-        margin-bottom: 0.75rem;
-    }
-    header nav {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-    header nav a {
-        padding: 0.75rem 1rem;
-        font-size: 1rem;
-        width: 90%;
-        max-width: 320px;
-        text-align: center;
-        margin: 0.3rem 0;
-        border-radius: 8px;
-    }
-
-    main { padding: 20px 15px; margin: 20px auto; }
-    #hero { padding: 3rem 1rem; }
-    #hero h2 { font-size: 1.8rem; }
-    #hero p:first-of-type { font-size: 1rem; }
-    #hero .button { margin-bottom: 1.5rem; }
-    .hero-secondary-links { flex-direction: column; gap: 0.5rem; }
-    .secondary-link { padding: 0.5rem 1rem; font-size: 0.85rem; }
-
-    h2 { font-size: 1.7rem; }
-    h3 { font-size: 1.3rem; }
-    .button { padding: 12px 25px; font-size: 0.95rem; }
-    .skills-grid { grid-template-columns: 1fr; }
-}
+    <footer>
+        <p>© 2024 Alireza Ebrahimvandi | 
+            <a href="https://www.linkedin.com/in/ebrahimvandi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </p>
+    </footer>
+</body>
+</html>
