@@ -82,6 +82,13 @@ header nav a.active {
     font-weight: 700;
 }
 
+/* Add visual separators between navigation links */
+header nav a + a::before {
+    content: "│";
+    margin: 0 0.5rem;
+    color: var(--nav-link-color);
+}
+
 
 /* --- Main Content Area --- */
 main {
