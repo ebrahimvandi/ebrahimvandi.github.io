@@ -6,13 +6,13 @@
     --primary-font: 'Lato', Arial, sans-serif;
     --bg-color: #f7f9fc;
     --card-bg-color: #ffffff;
-    --text-color: #34495e;
+    --text-color: #333333;
     --heading-color: #2c3e50;
-    --accent-color: #3498db;
-    --accent-hover-color: #2980b9;
+    --accent-color: #1a73e8;
+    --accent-hover-color: #0c57b5;
     --border-color: #e8ecf1;
     --shadow-color: rgba(44, 62, 80, 0.15);
-    --nav-link-color: #566573;
+    --nav-link-color: #4a4a4a;
 }
 
 /* --- Global Styles --- */
