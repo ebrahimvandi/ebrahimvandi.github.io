@@ -302,18 +302,20 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 
     /* MOBILE NAVIGATION STYLES */
     header nav {
-        flex-direction: column; /* KEY: Stack navigation items vertically */
+        flex-direction: row; /* Keep navigation horizontal on mobile */
+        flex-wrap: wrap;
+        justify-content: center;
         align-items: center;
         width: 100%;
     }
 
     header nav a {
-        padding: 0.75rem 1rem;
+        padding: 0.6rem 1rem;
         font-size: 1rem;
-        width: 90%;
-        max-width: 320px;
+        width: auto;
+        max-width: none;
         text-align: center;
-        margin: 0.3rem 0;
+        margin: 0.3rem;
         border-radius: 8px;
     }
 
