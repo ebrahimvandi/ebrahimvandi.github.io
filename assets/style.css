@@ -100,7 +100,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 80px;
   background: var(--night);
 }
 
@@ -239,11 +239,11 @@ a {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 52px;
-  padding: 0 24px;
+  min-height: 48px;
+  padding: 0 22px;
   border: 1px solid transparent;
   border-radius: 999px;
-  font-size: 0.96875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -308,49 +308,49 @@ a {
   }
 }
 
-/* --- Header: floating glass bar --- */
+/* --- Header: full-width bar. Transparent over the top of the hero; once the page
+   scrolls it turns solid (dark or light to match the section beneath), hides while
+   scrolling down, and returns on scroll up. --- */
 .site-header {
   position: fixed;
-  top: 12px;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 100;
-  padding-inline: 12px;
-  pointer-events: none;
+  border-bottom: 1px solid transparent;
+  color: #fff;
+  transition: transform 0.35s var(--ease), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+}
+
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+
+.site-header.is-solid {
+  background: var(--night);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.site-header.on-light {
+  background: #fff;
+  border-bottom-color: var(--line);
+  box-shadow: 0 8px 24px -20px rgba(10, 22, 40, 0.35);
+  color: var(--ink);
 }
 
 .nav-bar {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  max-width: calc(var(--container) + 32px);
-  min-height: 60px;
-  margin: 0 auto;
-  padding: 0 8px 0 8px;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 999px;
-  background: rgba(8, 15, 30, 0.55);
-  -webkit-backdrop-filter: saturate(160%) blur(18px);
-  backdrop-filter: saturate(160%) blur(18px);
-  box-shadow: 0 14px 36px -18px rgba(0, 0, 0, 0.55);
-  pointer-events: auto;
-  transition: background-color 0.3s ease;
-}
-
-.is-scrolled .nav-bar,
-.nav-open .nav-bar {
-  background: rgba(8, 15, 30, 0.82);
+  gap: 16px;
+  height: 64px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 6px 12px 6px 6px;
-  border-radius: 999px;
-  color: #fff;
+  color: inherit;
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: -0.015em;
@@ -358,17 +358,26 @@ a {
   white-space: nowrap;
 }
 
+.brand:hover {
+  color: inherit;
+}
+
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background: #fff;
   color: var(--night);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.02em;
+}
+
+.on-light .brand-mark {
+  background: var(--ink);
+  color: #fff;
 }
 
 .site-nav ul {
@@ -383,11 +392,11 @@ a {
 .site-nav a {
   display: inline-flex;
   align-items: center;
-  min-height: 42px;
-  padding: 0 15px;
+  min-height: 38px;
+  padding: 0 13px;
   border-radius: 999px;
-  color: #c4cfdd;
-  font-size: 0.90625rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.875rem;
   font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
@@ -396,18 +405,28 @@ a {
 
 .site-nav a:hover {
   color: #fff;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .site-nav a[aria-current="true"] {
   color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.on-light .site-nav a {
+  color: var(--text);
+}
+
+.on-light .site-nav a:hover,
+.on-light .site-nav a[aria-current="true"] {
+  color: var(--ink);
+  background: var(--paper-2);
 }
 
 .site-nav .nav-cta,
 .site-nav .nav-cta[aria-current="true"] {
   margin-left: 6px;
-  padding: 0 20px;
+  padding: 0 18px;
   background: #fff;
   color: var(--night);
   font-weight: 600;
@@ -418,16 +437,36 @@ a {
   color: var(--night);
 }
 
+.on-light .site-nav .nav-cta,
+.on-light .site-nav .nav-cta[aria-current="true"] {
+  background: var(--ink);
+  color: #fff;
+}
+
+.on-light .site-nav .nav-cta:hover {
+  background: var(--ink-2);
+  color: #fff;
+}
+
 .nav-toggle {
   display: none;
 }
 
+/* Without JavaScript the header simply scrolls away with the hero */
+html:not(.js) .site-header {
+  position: absolute;
+}
+
 @media (max-width: 879.98px) {
-  /* Without JavaScript the links stay reachable as a scrollable row */
+  .nav-bar {
+    height: 56px;
+  }
+
+  /* Without JavaScript the links wrap into a scrollable row */
   html:not(.js) .nav-bar {
     flex-wrap: wrap;
-    padding: 6px;
-    border-radius: 24px;
+    height: auto;
+    padding-block: 10px;
   }
 
   html:not(.js) .site-nav {
@@ -438,14 +477,23 @@ a {
   .js .nav-toggle {
     display: inline-grid;
     place-items: center;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
+    margin-right: -8px;
     padding: 0;
     border: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    color: #fff;
+    background: transparent;
+    color: inherit;
     cursor: pointer;
+  }
+
+  .js .nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .js .on-light .nav-toggle:hover {
+    background: var(--paper-2);
   }
 
   .nav-toggle .icon-close,
@@ -460,21 +508,24 @@ a {
   .js .site-nav {
     display: none;
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
     right: 0;
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: 24px;
-    background: rgba(8, 15, 30, 0.94);
-    -webkit-backdrop-filter: blur(18px);
-    backdrop-filter: blur(18px);
-    box-shadow: 0 28px 56px -20px rgba(0, 0, 0, 0.6);
+    padding: 8px var(--gutter) 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--night);
+    box-shadow: 0 24px 40px -24px rgba(0, 0, 0, 0.6);
+  }
+
+  .js .on-light .site-nav {
+    border-bottom-color: var(--line);
+    background: #fff;
+    box-shadow: 0 24px 40px -24px rgba(10, 22, 40, 0.3);
   }
 
   .js .nav-open .site-nav {
     display: block;
-    animation: menu-in 0.28s var(--ease);
+    animation: menu-in 0.24s var(--ease);
   }
 
   .js .site-nav ul {
@@ -485,10 +536,10 @@ a {
 
   .js .site-nav a {
     display: flex;
-    min-height: 52px;
-    padding: 0 16px;
-    border-radius: 14px;
-    font-size: 1.0625rem;
+    min-height: 48px;
+    padding: 0 12px;
+    border-radius: 12px;
+    font-size: 1rem;
   }
 
   .js .site-nav .nav-cta {
@@ -501,7 +552,7 @@ a {
 @keyframes menu-in {
   from {
     opacity: 0;
-    transform: translateY(-6px) scale(0.98);
+    transform: translateY(-6px);
   }
 }
 
@@ -556,7 +607,7 @@ a {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-top: clamp(136px, 17vw, 196px);
+  padding-top: clamp(112px, 12vw, 160px);
   background: var(--night);
   color: var(--on-night);
 }
@@ -565,7 +616,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
 
 .chip {
@@ -614,30 +665,30 @@ a {
 }
 
 .hero-name {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   color: #fff;
-  font-size: clamp(3rem, 1.3rem + 6.4vw, 6.5rem);
+  font-size: clamp(2.5rem, 1.5rem + 3.9vw, 4.5rem);
   font-weight: 600;
-  line-height: 0.96;
-  letter-spacing: -0.05em;
+  line-height: 1;
+  letter-spacing: -0.045em;
 }
 
 .hero-statement {
-  max-width: 16em;
-  margin: 0 0 28px;
+  max-width: 20em;
+  margin: 0 0 22px;
   color: #9fb0c8;
-  font-size: clamp(1.9rem, 1.1rem + 3.1vw, 3.75rem);
+  font-size: clamp(1.375rem, 1rem + 1.5vw, 2.375rem);
   font-weight: 500;
-  line-height: 1.06;
-  letter-spacing: -0.04em;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
 .hero-lead {
-  max-width: 38em;
-  margin: 0 0 36px;
+  max-width: 40em;
+  margin: 0 0 32px;
   color: var(--on-night-2);
-  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.3125rem);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
   line-height: 1.6;
   letter-spacing: -0.012em;
 }
@@ -651,8 +702,8 @@ a {
 /* Signature chart: observed signal -> now -> forecast with interval */
 .hero-chart {
   position: relative;
-  height: clamp(150px, 18vw, 260px);
-  margin: clamp(84px, 10vw, 132px) 0 0;
+  height: clamp(130px, 15vw, 220px);
+  margin: clamp(64px, 8vw, 104px) 0 0;
 }
 
 .hc-svg {
@@ -734,16 +785,16 @@ a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 36px 24px;
-  margin: clamp(48px, 6vw, 72px) 0 0;
-  padding: 36px 0 clamp(88px, 11vw, 136px);
+  margin: clamp(40px, 5vw, 64px) 0 0;
+  padding: 32px 0 clamp(64px, 8vw, 104px);
   list-style: none;
   border-top: 1px solid var(--night-line);
 }
 
 .stat-value {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: #fff;
-  font-size: clamp(2.5rem, 1.6rem + 2.6vw, 3.75rem);
+  font-size: clamp(2rem, 1.5rem + 1.4vw, 2.75rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.045em;
@@ -761,7 +812,7 @@ a {
   max-width: 24ch;
   margin: 0;
   color: var(--on-night-muted);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.45;
 }
 
@@ -850,7 +901,7 @@ a {
 /* --- Sections --- */
 .section {
   position: relative;
-  padding-block: clamp(72px, 12vw, 168px);
+  padding-block: clamp(64px, 9vw, 128px);
   background: var(--paper);
 }
 
@@ -867,15 +918,15 @@ a {
 }
 
 .section-head {
-  max-width: 62rem;
-  margin: 0 0 clamp(52px, 7vw, 88px);
+  max-width: 50rem;
+  margin: 0 0 clamp(40px, 5vw, 64px);
 }
 
 .eyebrow {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin: 0 0 24px;
+  margin: 0 0 18px;
   color: var(--teal-ink);
   font-family: var(--mono);
   font-size: 0.78125rem;
@@ -908,10 +959,10 @@ a {
 
 .section-head h2 {
   color: var(--ink);
-  font-size: clamp(2.25rem, 1.05rem + 4.1vw, 4.75rem);
+  font-size: clamp(1.75rem, 1.2rem + 2.1vw, 3rem);
   font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: -0.045em;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
 }
 
 .section-dark .section-head h2 {
@@ -920,9 +971,9 @@ a {
 
 .section-lede {
   max-width: 42em;
-  margin: 26px 0 0;
+  margin: 18px 0 0;
   color: var(--muted);
-  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
   line-height: 1.6;
 }
 
@@ -975,13 +1026,13 @@ a {
   max-width: 38em;
   margin: 0 0 1.2em;
   color: var(--text);
-  font-size: 1.125rem;
-  line-height: 1.75;
+  font-size: 1.0625rem;
+  line-height: 1.7;
 }
 
 .about-copy p:first-child {
   color: var(--ink-2);
-  font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  font-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
   line-height: 1.55;
   letter-spacing: -0.02em;
 }
@@ -1010,7 +1061,7 @@ a {
 .edu-degree {
   margin: 0 0 6px;
   color: var(--ink);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -1134,7 +1185,7 @@ a {
   isolation: isolate;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
   overflow: hidden;
   padding: clamp(24px, 3vw, 32px);
   border: 1px solid var(--line);
@@ -1152,9 +1203,9 @@ a {
 }
 
 .card h3 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--ink);
-  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  font-size: clamp(1.125rem, 1.05rem + 0.3vw, 1.3125rem);
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -1163,6 +1214,7 @@ a {
 .card p {
   margin: 0;
   color: var(--muted);
+  font-size: 0.9375rem;
   line-height: 1.6;
 }
 
@@ -1290,7 +1342,7 @@ a {
 .mini-stats span {
   display: block;
   color: var(--ink);
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.04em;
@@ -1546,10 +1598,10 @@ a {
 .role-org {
   display: block;
   color: var(--ink);
-  font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+  font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.035em;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   text-decoration: none;
 }
 
@@ -1566,18 +1618,18 @@ a.role-org:hover {
 
 .role-title {
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
   color: var(--teal-ink);
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 .role-summary {
   max-width: 44em;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
   color: var(--ink-2);
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
 }
 
 .role-points {
@@ -1647,7 +1699,7 @@ a.role-org:hover {
   margin: 0 0 18px;
   color: #fff;
   font-family: var(--serif);
-  font-size: clamp(1.9rem, 1.2rem + 2.2vw, 3rem);
+  font-size: clamp(1.5rem, 1.15rem + 1.3vw, 2.25rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.01em;
@@ -1756,7 +1808,7 @@ a.role-org:hover {
 
 .pub-title {
   color: #fff;
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   line-height: 1.4;
   letter-spacing: -0.015em;
@@ -1883,7 +1935,7 @@ a.mini-title:hover {
 
 .skill-row dt {
   color: var(--ink);
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -1902,12 +1954,12 @@ a.mini-title:hover {
 }
 
 .chips li {
-  padding: 7px 14px;
+  padding: 6px 13px;
   border: 1px solid var(--line-2);
   border-radius: 999px;
   background: #fff;
   color: var(--ink-2);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.4;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
@@ -1922,7 +1974,7 @@ a.mini-title:hover {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: clamp(120px, 15vw, 208px) clamp(88px, 11vw, 144px);
+  padding-block: clamp(88px, 11vw, 160px) clamp(64px, 8vw, 104px);
   background: var(--night);
   color: var(--on-night);
 }
@@ -1937,20 +1989,20 @@ a.mini-title:hover {
 }
 
 .contact-title {
-  max-width: 15em;
+  max-width: 18em;
   margin: 0;
   color: #fff;
-  font-size: clamp(2.5rem, 1.2rem + 4.8vw, 5.75rem);
+  font-size: clamp(2rem, 1.35rem + 2.4vw, 3.25rem);
   font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.05em;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
 }
 
 .contact-lede {
   max-width: 36em;
-  margin: 32px 0 0;
+  margin: 24px 0 0;
   color: var(--on-night-2);
-  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
   line-height: 1.6;
 }
 
@@ -1958,7 +2010,7 @@ a.mini-title:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 44px;
+  margin-top: 36px;
 }
 
 /* --- Footer --- */
@@ -2040,7 +2092,7 @@ a.mini-title:hover {
 .notfound h1 {
   margin: 0 0 20px;
   color: #fff;
-  font-size: clamp(2.75rem, 1.5rem + 5vw, 5.5rem);
+  font-size: clamp(2.25rem, 1.5rem + 2.8vw, 3.5rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.045em;
@@ -2050,7 +2102,7 @@ a.mini-title:hover {
   max-width: 32em;
   margin: 0 auto 36px;
   color: var(--on-night-2);
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
 }
 
 /* --- Motion & contrast preferences --- */
@@ -2140,7 +2192,7 @@ a.mini-title:hover {
   }
 
   .hero-name {
-    font-size: 30pt;
+    font-size: 26pt;
   }
 
   .hero-statement,
