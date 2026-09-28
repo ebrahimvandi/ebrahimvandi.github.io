@@ -1,7 +1,10 @@
 (() => {
+  const root = document.documentElement;
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("site-nav");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hasIO = "IntersectionObserver" in window;
   if (!header || !toggle || !nav) return;
 
   const links = [...nav.querySelectorAll('a[href^="#"]')];
@@ -30,17 +33,15 @@
     if (e.matches) setOpen(false);
   });
 
-  // Border under the header once the page has scrolled
-  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
-  requestAnimationFrame(onScroll); // after first layout, so reading scrollY doesn't force a reflow
+  // Denser header once the page has scrolled
+  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 24);
   window.addEventListener("scroll", onScroll, { passive: true });
 
-  // Highlight the nav link for the section in view
-  if ("IntersectionObserver" in window) {
+  if (hasIO) {
+    // Highlight the nav link for the section in view
     const linkFor = new Map(links.map((a) => [a.hash.slice(1), a]));
-    const targets = [document.querySelector(".hero"), ...[...linkFor.keys()].map((id) => document.getElementById(id))].filter(Boolean);
-
-    const observer = new IntersectionObserver(
+    const spyTargets = [document.getElementById("top"), ...[...linkFor.keys()].map((id) => document.getElementById(id))].filter(Boolean);
+    const spy = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
@@ -50,8 +51,85 @@
       },
       { rootMargin: "-45% 0px -50% 0px" }
     );
+    spyTargets.forEach((t) => spy.observe(t));
 
-    targets.forEach((t) => observer.observe(t));
+    // Pause ambient animation while its section is off screen
+    const ambient = new IntersectionObserver((entries) => {
+      entries.forEach((e) => e.target.classList.toggle("is-paused", !e.isIntersecting));
+    });
+    document.querySelectorAll(".hero, .contact").forEach((s) => ambient.observe(s));
+  }
+
+  const animate = hasIO && !reduceMotion;
+  const items = animate ? [...document.querySelectorAll(".reveal")] : [];
+  const counters = animate ? [...document.querySelectorAll("[data-count]")] : [];
+
+  // Start-up runs after the first paint and reads layout before writing, so it never forces a reflow
+  const afterFirstPaint = (fn) => requestAnimationFrame(() => requestAnimationFrame(fn));
+  afterFirstPaint(() => {
+    const scrolled = window.scrollY > 24;
+    const vh = window.innerHeight;
+    const onScreen = items.map((el) => el.getBoundingClientRect().top < vh * 0.9);
+
+    header.classList.toggle("is-scrolled", scrolled);
+    if (!animate) return;
+
+    // Reveal content as it scrolls into view. Anything already on screen stays put.
+    items.forEach((el, i) => onScreen[i] && el.classList.add("is-in"));
+    root.classList.add("reveal-ready");
+
+    const reveal = new IntersectionObserver(
+      (entries) => {
+        entries
+          .filter((e) => e.isIntersecting)
+          .forEach((entry, i) => {
+            reveal.unobserve(entry.target);
+            setTimeout(() => entry.target.classList.add("is-in"), i * 90);
+          });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    );
+    items.filter((el) => !el.classList.contains("is-in")).forEach((el) => reveal.observe(el));
+
+    // Count the headline figures up when they come into view.
+    // The real value stays in the DOM; the animation is drawn by CSS from data-display.
+    const run = (el) => {
+      const target = parseFloat(el.dataset.count);
+      const decimals = parseInt(el.dataset.decimals || "0", 10);
+      const start = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - start) / 1600);
+        el.dataset.display = (target * (1 - Math.pow(1 - p, 4))).toFixed(decimals);
+        if (p < 1) requestAnimationFrame(tick);
+        else delete el.dataset.display;
+      };
+      requestAnimationFrame(tick);
+    };
+    const count = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          count.unobserve(e.target);
+          run(e.target);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counters.forEach((el) => {
+      el.dataset.display = (0).toFixed(parseInt(el.dataset.decimals || "0", 10));
+      count.observe(el);
+    });
+  });
+
+  // Soft spotlight that follows the pointer across cards
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".spot").forEach((card) => {
+      card.addEventListener("pointermove", (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+        card.style.setProperty("--my", `${e.clientY - r.top}px`);
+      });
+    });
   }
 
   // Keep the footer year current
