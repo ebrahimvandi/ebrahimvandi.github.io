@@ -1,78 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alireza Ebrahimvandi, PhD | Data Scientist, UCSF Health</title>
+  <meta name="description" content="Alireza Ebrahimvandi, PhD — data scientist at UCSF Health building and evaluating clinical AI: LLMs, predictive models, and simulation for better patient care.">
+  <meta name="author" content="Alireza Ebrahimvandi">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://ebrahimvandi.github.io/">
+  <meta name="theme-color" content="#ffffff">
 
-    <!-- === SEO META TAGS START === -->
-    <title>Alireza Ebrahimvandi | Data Scientist | PhD Industrial & Systems Engineering</title>
-    <meta name="description" content="Dr. Alireza Ebrahimvandi, PhD in Industrial & Systems Engineering. Data Scientist specializing in AI, machine learning, and operations research for healthcare systems innovation.">
-    <meta name="keywords" content="Alireza Ebrahimvandi, Data Scientist, PhD, Industrial Engineering, Systems Engineering, Operations Research, Healthcare AI, Machine Learning, UCSF, Virginia Tech, Healthcare Innovation, Predictive Modeling, Simulation">
-    <link rel="canonical" href="https://ebrahimvandi.github.io/">
+  <!-- Social previews (LinkedIn, Facebook, Slack, X) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Alireza Ebrahimvandi">
+  <meta property="og:url" content="https://ebrahimvandi.github.io/">
+  <meta property="og:title" content="Alireza Ebrahimvandi, PhD — Data Scientist, UCSF Health">
+  <meta property="og:description" content="Building and evaluating clinical AI at UCSF Health — LLMs, predictive models, and simulation. PhD in Industrial &amp; Systems Engineering, Virginia Tech.">
+  <meta property="og:image" content="https://ebrahimvandi.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Alireza Ebrahimvandi, PhD — Data Scientist, UCSF Health">
+  <meta property="og:locale" content="en_US">
+  <meta property="profile:first_name" content="Alireza">
+  <meta property="profile:last_name" content="Ebrahimvandi">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Alireza Ebrahimvandi, PhD — Data Scientist, UCSF Health">
+  <meta name="twitter:description" content="Building and evaluating clinical AI at UCSF Health — LLMs, predictive models, and simulation.">
+  <meta name="twitter:image" content="https://ebrahimvandi.github.io/assets/og-image.png">
+  <meta name="twitter:image:alt" content="Alireza Ebrahimvandi, PhD — Data Scientist, UCSF Health">
 
-    <!-- Open Graph / Facebook / LinkedIn Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ebrahimvandi.github.io/">
-    <meta property="og:title" content="Alireza Ebrahimvandi | Data Scientist | PhD Industrial & Systems Engineering">
-    <meta property="og:description" content="Dr. Alireza Ebrahimvandi, PhD. Data Scientist specializing in AI, machine learning, and operations research for healthcare systems innovation.">
-    <!-- <meta property="og:image" content="https://ebrahimvandi.github.io/your-professional-photo.jpg"> -->
-    <meta property="og:site_name" content="Alireza Ebrahimvandi">
+  <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">
+  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://ebrahimvandi.github.io/">
-    <!-- <meta name="twitter:site" content="@YourTwitterHandle"> -->
-    <meta name="twitter:title" content="Alireza Ebrahimvandi | Data Scientist | PhD">
-    <meta name="twitter:description" content="Dr. Alireza Ebrahimvandi, PhD. Data Scientist specializing in AI, machine learning, and operations research for healthcare systems innovation.">
-    <!-- <meta name="twitter:image" content="https://ebrahimvandi.github.io/your-professional-photo.jpg"> -->
-    <!-- === SEO META TAGS END === -->
+  <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/source-serif-4-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="/assets/main.js" defer></script>
 
-    <link rel="stylesheet" href="style.css">
-    <!-- Import Google Font - Lato -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <!-- Structured data: tells search engines who this page is about -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://ebrahimvandi.github.io/#website",
+        "url": "https://ebrahimvandi.github.io/",
+        "name": "Alireza Ebrahimvandi",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://ebrahimvandi.github.io/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://ebrahimvandi.github.io/#profile",
+        "url": "https://ebrahimvandi.github.io/",
+        "name": "Alireza Ebrahimvandi, PhD | Data Scientist, UCSF Health",
+        "isPartOf": { "@id": "https://ebrahimvandi.github.io/#website" },
+        "inLanguage": "en-US",
+        "dateModified": "2026-09-28",
+        "mainEntity": { "@id": "https://ebrahimvandi.github.io/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ebrahimvandi.github.io/#person",
+        "name": "Alireza Ebrahimvandi",
+        "givenName": "Alireza",
+        "familyName": "Ebrahimvandi",
+        "honorificSuffix": "PhD",
+        "url": "https://ebrahimvandi.github.io/",
+        "jobTitle": "Data Scientist",
+        "description": "Data scientist at UCSF Health who builds, evaluates, and monitors clinical AI, including large language models, predictive models, and simulation.",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "UCSF Health",
+          "url": "https://www.ucsfhealth.org/"
+        },
+        "workLocation": {
+          "@type": "Place",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "San Francisco",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+          }
+        },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Virginia Tech",
+          "alternateName": "Virginia Polytechnic Institute and State University",
+          "url": "https://www.vt.edu/"
+        },
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "educationalLevel": "Doctoral degree",
+            "name": "PhD in Industrial and Systems Engineering",
+            "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Virginia Tech" }
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "degree",
+            "educationalLevel": "Master's degree",
+            "name": "M.Sc. in Industrial and Systems Engineering (Operations Research)",
+            "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Virginia Tech" }
+          }
+        ],
+        "knowsAbout": [
+          "Healthcare artificial intelligence",
+          "Machine learning",
+          "Large language models",
+          "AI model monitoring and evaluation",
+          "Predictive modeling",
+          "Operations research",
+          "Discrete-event simulation",
+          "System dynamics",
+          "Infant mortality and preterm birth"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/ebrahimvandi/",
+          "https://orcid.org/0000-0002-6338-2662",
+          "https://github.com/ebrahimvandi"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-    <header>
-        <h1>Alireza Ebrahimvandi</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="experience.html">Experience</a>
-            <a href="skills.html">Skills</a>
-            <a href="research.html">Research</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <main>
-        <section id="hero">
-            <h2>PhD in Industrial & Systems Engineering | Data Scientist</h2>
-            <p>Leveraging AI, Machine Learning, and Operations Research to transform healthcare systems and improve patient outcomes. Passionate about developing data-driven solutions for complex real-world challenges.</p>
-            <p><a href="experience.html" class="button">Explore My Work</a></p>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">AE</span>
+        <span class="brand-name">Alireza Ebrahimvandi</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+        <svg class="icon-menu" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a class="nav-cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-            <div class="hero-secondary-links">
-                <a href="https://www.linkedin.com/in/ebrahimvandi/" target="_blank" rel="noopener noreferrer" class="secondary-link">LinkedIn Profile</a>
-                <a href="https://healthinformatics.ucsf.edu/analytics-innovations" target="_blank" rel="noopener noreferrer" class="secondary-link">UCSF Health Analytics & Innovations</a>
-                <a href="https://scholar.google.com/citations?user=nIFyu6kAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" class="secondary-link">Google Scholar Profile</a>
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-kicker">Healthcare AI · Machine learning · Operations research</p>
+            <h1 id="hero-title">Alireza Ebrahimvandi</h1>
+            <p class="hero-subtitle">Data Scientist at UCSF Health</p>
+            <p class="hero-degree">PhD, Industrial &amp; Systems Engineering</p>
+            <p class="hero-lead">I build, evaluate, and monitor AI for healthcare — from large language models that summarize clinical notes to predictive and simulation models that help hospitals manage capacity and patient flow.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#experience">
+                View experience
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+              </a>
+              <a class="btn btn-secondary" href="https://www.linkedin.com/in/ebrahimvandi/" target="_blank" rel="me noopener">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+                Connect on LinkedIn
+              </a>
             </div>
-        </section>
+          </div>
 
-        <section id="expertise">
-            <h3>My Expertise</h3>
-            <ul>
-                <li><strong>Healthcare Data Science:</strong> Developing predictive models, optimizing patient flow, and enhancing decision-making in medical systems.</li>
-                <li><strong>Machine Learning & AI:</strong> Building and deploying AI-powered tools, including LLMs, for applications like clinical trial matching and risk prediction.</li>
-                <li><strong>Operations Research & Simulation:</strong> Applying advanced simulation and optimization techniques to improve system efficiency.</li>
+          <aside class="profile-card" aria-label="At a glance">
+            <div class="profile-card-head">
+              <span class="avatar" aria-hidden="true">AE</span>
+              <div>
+                <p class="profile-card-name">At a glance</p>
+                <p class="profile-card-role">San Francisco, California</p>
+              </div>
+            </div>
+            <dl class="facts">
+              <div><dt>Previously</dt><dd>Healthcare Data Scientist, University of Maryland Medical System</dd></div>
+              <div><dt>Education</dt><dd>PhD &amp; M.Sc., Industrial &amp; Systems Engineering, Virginia Tech</dd></div>
+              <div><dt>Focus</dt><dd>Clinical AI &amp; LLMs, model evaluation, predictive modeling, simulation</dd></div>
+              <div><dt>Research</dt><dd>Maternal &amp; infant health, PTSD, health-system performance</dd></div>
+            </dl>
+            <ul class="profile-links">
+              <li>
+                <a href="https://www.linkedin.com/in/ebrahimvandi/" target="_blank" rel="me noopener">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://orcid.org/0000-0002-6338-2662" target="_blank" rel="me noopener">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0ZM7.37 4.38c.52 0 .95.43.95.95s-.43.95-.95.95a.95.95 0 0 1-.95-.95c0-.52.43-.95.95-.95Zm-.72 3.04h1.44v10.04H6.65V7.42Zm3.56 0h3.9c3.71 0 5.34 2.65 5.34 5.02 0 2.58-2.02 5.03-5.32 5.03h-3.92V7.42Zm1.44 1.3v7.45h2.3c3.27 0 4.02-2.49 4.02-3.73 0-2.01-1.28-3.72-4.1-3.72h-2.22Z"/></svg>
+                  ORCID
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/ebrahimvandi" target="_blank" rel="me noopener">
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+                  GitHub
+                </a>
+              </li>
             </ul>
-        </section>
-    </main>
+          </aside>
+        </div>
 
-    <footer>
-        <p>© 2024 Alireza Ebrahimvandi | 
-            <a href="https://www.linkedin.com/in/ebrahimvandi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </p>
-    </footer>
+        <ul class="stats">
+          <li><span class="stat-value">10+ yrs</span><span class="stat-label">in healthcare analytics &amp; research</span></li>
+          <li><span class="stat-value">2–4 hrs</span><span class="stat-label">cut from ED wait times through simulation</span></li>
+          <li><span class="stat-value">6</span><span class="stat-label">peer-reviewed journal articles</span></li>
+          <li><span class="stat-value">4.00</span><span class="stat-label">GPA across PhD &amp; M.Sc., Virginia Tech</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container section-grid">
+        <div class="section-head">
+          <h2 id="about-title">About</h2>
+        </div>
+        <div class="section-body">
+          <div class="prose">
+            <p class="lead">I’m a data scientist at UCSF Health, where I build, evaluate, and monitor the AI and machine-learning tools that support patient care and hospital operations.</p>
+            <p>My work sits where machine learning, simulation, and operations research meet: turning complex clinical and operational data into models that clinicians and leaders can act on. At UCSF, that includes large language models for clinical summarization, real-time bed-availability prediction, and the monitoring and evaluation of AI models in production.</p>
+            <p>Before UCSF, I was a healthcare data scientist at the University of Maryland Medical System, where my discrete-event simulations cut emergency department wait times by 2–4 hours and my COVID-19 forecasting models outperformed external benchmarks. My doctoral research at Virginia Tech, funded by the Ohio Department of Medicaid, used predictive and system-dynamics models to understand infant mortality and preterm birth and to inform policy for high-risk populations.</p>
+            <p>I’m driven by the potential of data to make healthcare more efficient, equitable, and patient-centered — and I’m always glad to connect with people working toward the same goal.</p>
+          </div>
+
+          <h3 class="subhead">Education</h3>
+          <div class="edu-grid">
+            <article class="card edu-card">
+              <h4>PhD, Industrial &amp; Systems Engineering</h4>
+              <p class="edu-meta"><span>Virginia Tech</span><span class="badge">GPA 4.00</span></p>
+              <p class="edu-detail"><span>Dissertation</span><a href="https://hdl.handle.net/10919/96266" target="_blank" rel="noopener">Three Essays on Analysis of US Infant Mortality Using Systems and Data Science Approaches</a></p>
+            </article>
+            <article class="card edu-card">
+              <h4>M.Sc., Industrial &amp; Systems Engineering</h4>
+              <p class="edu-meta"><span>Virginia Tech</span><span class="badge">GPA 4.00</span></p>
+              <p class="edu-detail"><span>Concentration</span>Operations Research</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section section-alt" id="experience" aria-labelledby="experience-title">
+      <div class="container section-grid">
+        <div class="section-head">
+          <h2 id="experience-title">Experience</h2>
+          <p class="section-intro">Health-system data science since 2019, built on doctoral research in health-policy modeling.</p>
+        </div>
+        <div class="section-body">
+          <ol class="timeline">
+            <li class="role">
+              <div class="role-head">
+                <h3>Data Scientist</h3>
+                <p class="role-dates"><time datetime="2022-04">Apr 2022</time> – Present</p>
+              </div>
+              <p class="role-org"><a href="https://healthinformatics.ucsf.edu/analytics-innovations" target="_blank" rel="noopener">UCSF Health</a> · San Francisco, CA</p>
+              <p class="role-summary">Building AI and machine-learning solutions that improve patient care and operational efficiency.</p>
+              <ul class="role-points">
+                <li><strong>Monitoring and evaluation of AI models</strong> — validating models for production use and tracking their performance after deployment, across projects including Inpatient Insights, LLM-based cancer clinical-trial matching, Epic’s 30-day readmission model, and 1-year admission and ED-visit risk models.</li>
+                <li>Build and validate large language models (LLMs) that summarize inpatient notes, hospital course, and discharge instructions.</li>
+                <li>Develop real-time bed-availability prediction models for the Patient Capacity Management Center.</li>
+                <li>Build simulation frameworks that optimize patient flow and inform strategic decisions such as MRI capacity expansion.</li>
+              </ul>
+              <ul class="tags">
+                <li>Large language models</li>
+                <li>Model evaluation &amp; monitoring</li>
+                <li>Predictive modeling</li>
+                <li>Simulation</li>
+              </ul>
+            </li>
+
+            <li class="role">
+              <div class="role-head">
+                <h3>Healthcare Data Scientist</h3>
+                <p class="role-dates"><time datetime="2019-12">Dec 2019</time> – <time datetime="2022-04">Apr 2022</time></p>
+              </div>
+              <p class="role-org"><strong>University of Maryland Medical System</strong> · Linthicum Heights, MD</p>
+              <p class="role-summary">Focused on process improvement and predictive analytics.</p>
+              <ul class="role-points">
+                <li>Designed quasi-experimental studies to improve patient satisfaction and inform executive leadership.</li>
+                <li>Built discrete-event simulations that cut emergency department wait times by 2–4 hours.</li>
+                <li>Developed COVID-19 hospitalization and ICU forecasting models that outperformed external benchmarks.</li>
+              </ul>
+              <ul class="tags">
+                <li>Quasi-experimental design</li>
+                <li>Discrete-event simulation</li>
+                <li>Forecasting</li>
+              </ul>
+            </li>
+
+            <li class="role">
+              <div class="role-head">
+                <h3>Graduate Research Assistant</h3>
+                <p class="role-dates"><time datetime="2016-08">Aug 2016</time> – <time datetime="2019-12">Dec 2019</time></p>
+              </div>
+              <p class="role-org"><strong>Virginia Tech</strong> · Blacksburg, VA</p>
+              <ul class="role-points">
+                <li>Built system-dynamics and predictive models of infant mortality and preterm birth in Ohio, funded by the Ohio Department of Medicaid.</li>
+              </ul>
+              <ul class="tags">
+                <li>System dynamics</li>
+                <li>Machine learning</li>
+                <li>Health policy</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section class="section" id="research" aria-labelledby="research-title">
+      <div class="container section-grid">
+        <div class="section-head">
+          <h2 id="research-title">Research &amp; publications</h2>
+          <p class="section-intro">Machine learning, system dynamics, and operations research applied to maternal and infant health, mental health, and health-system performance.</p>
+          <p class="section-link">
+            <a href="https://orcid.org/0000-0002-6338-2662" target="_blank" rel="me noopener">
+              Full record on ORCID
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </p>
+        </div>
+        <div class="section-body">
+          <h3 class="subhead">Journal articles</h3>
+          <ol class="pubs">
+            <li class="pub">
+              <span class="pub-year">2022</span>
+              <div>
+                <a class="pub-title" href="https://doi.org/10.3390/info13070310" target="_blank" rel="noopener">Identifying the Early Signs of Preterm Birth from U.S. Birth Records Using Machine Learning Techniques</a>
+                <p class="pub-authors"><strong>Alireza Ebrahimvandi</strong>, Niyousha Hosseinichimeh, James Zhenyu Kong</p>
+                <p class="pub-venue"><em>Information</em>, 13(7), 310</p>
+                <div class="pub-links">
+                  <a class="pub-link" href="https://doi.org/10.3390/info13070310" target="_blank" rel="noopener">doi:10.3390/info13070310</a>
+                  <a class="pub-link" href="https://github.com/ebrahimvandi/preterm_prediction" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></svg>
+                    Code on GitHub
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2021</span>
+              <div>
+                <a class="pub-title" href="https://doi.org/10.1016/j.eswa.2021.115278" target="_blank" rel="noopener">A DEA Evaluation of U.S. States’ Healthcare Systems in Terms of Their Birth Outcomes</a>
+                <p class="pub-authors">Negar Darabi, <strong>Alireza Ebrahimvandi</strong>, Niyousha Hosseinichimeh, Konstantinos Triantis</p>
+                <p class="pub-venue"><em>Expert Systems with Applications</em>, 182, 115278</p>
+                <div class="pub-links">
+                  <a class="pub-link" href="https://doi.org/10.1016/j.eswa.2021.115278" target="_blank" rel="noopener">doi:10.1016/j.eswa.2021.115278</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2018</span>
+              <div>
+                <a class="pub-title" href="https://doi.org/10.1055/s-0038-1675835" target="_blank" rel="noopener">Understanding State-Level Variations in the US Infant Mortality: 2000 to 2015</a>
+                <p class="pub-authors"><strong>Alireza Ebrahimvandi</strong>, Niyousha Hosseinichimeh, Jay D. Iams</p>
+                <p class="pub-venue"><em>American Journal of Perinatology</em>, 36(12), 1271–1277</p>
+                <div class="pub-links">
+                  <a class="pub-link" href="https://doi.org/10.1055/s-0038-1675835" target="_blank" rel="noopener">doi:10.1055/s-0038-1675835</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2018</span>
+              <div>
+                <a class="pub-title" href="https://doi.org/10.1002/sres.2563" target="_blank" rel="noopener">Using a Stakeholder Analysis to Improve Systems Modelling of Health Issues: The Impact of Progesterone Therapy on Infant Mortality in Ohio</a>
+                <p class="pub-authors">Niyousha Hosseinichimeh, Hyunjung Kim, <strong>Alireza Ebrahimvandi</strong>, Jay D. Iams, David Andersen</p>
+                <p class="pub-venue"><em>Systems Research and Behavioral Science</em>, 36(4), 476–493</p>
+                <div class="pub-links">
+                  <a class="pub-link" href="https://doi.org/10.1002/sres.2563" target="_blank" rel="noopener">doi:10.1002/sres.2563</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2017</span>
+              <div>
+                <a class="pub-title" href="https://doi.org/10.1002/sdr.1575" target="_blank" rel="noopener">Group Model Building Techniques for Rapid Elicitation of Parameter Values, Effect Sizes, and Data Sources</a>
+                <p class="pub-authors">Niyousha Hosseinichimeh, Rod MacDonald, Ayaz Hyder, <strong>Alireza Ebrahimvandi</strong>, et al.</p>
+                <p class="pub-venue"><em>System Dynamics Review</em>, 33(1), 71–84</p>
+                <div class="pub-links">
+                  <a class="pub-link" href="https://doi.org/10.1002/sdr.1575" target="_blank" rel="noopener">doi:10.1002/sdr.1575</a>
+                </div>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2016</span>
+              <div>
+                <a class="pub-title" href="https://doi.org/10.1371/journal.pone.0161405" target="_blank" rel="noopener">A Dynamic Model of Post-Traumatic Stress Disorder for Military Personnel and Veterans</a>
+                <p class="pub-authors">Navid Ghaffarzadegan, <strong>Alireza Ebrahimvandi</strong>, Mohammad S. Jalali</p>
+                <p class="pub-venue"><em>PLOS ONE</em>, 11(10), e0161405</p>
+                <div class="pub-links">
+                  <a class="pub-link" href="https://doi.org/10.1371/journal.pone.0161405" target="_blank" rel="noopener">doi:10.1371/journal.pone.0161405</a>
+                  <span class="pub-note">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8Z"/></svg>
+                    Covered by Newsweek &amp; Business Insider
+                  </span>
+                </div>
+              </div>
+            </li>
+          </ol>
+
+          <h3 class="subhead">Book chapter</h3>
+          <ol class="pubs">
+            <li class="pub">
+              <span class="pub-year">2018</span>
+              <div>
+                <a class="pub-title" href="https://doi.org/10.1007/978-3-319-61762-6_17" target="_blank" rel="noopener">Model-Based Policy Analysis to Mitigate Post-Traumatic Stress Disorder</a>
+                <p class="pub-authors">Navid Ghaffarzadegan, Richard C. Larson, Henry Fingerhut, Mohammad S. Jalali, <strong>Alireza Ebrahimvandi</strong>, Anne Quaadgras, Thomas Kochan</p>
+                <p class="pub-venue">In <em>Policy Analytics, Modelling, and Informatics</em>, pp. 387–406. Springer.</p>
+                <div class="pub-links">
+                  <a class="pub-link" href="https://doi.org/10.1007/978-3-319-61762-6_17" target="_blank" rel="noopener">doi:10.1007/978-3-319-61762-6_17</a>
+                </div>
+              </div>
+            </li>
+          </ol>
+
+          <h3 class="subhead">Conference presentations</h3>
+          <ol class="pubs">
+            <li class="pub">
+              <span class="pub-year">2019</span>
+              <div>
+                <p class="pub-title">System Modeling of a Health Issue: The Case of Preterm Birth in Ohio</p>
+                <p class="pub-authors"><strong>Alireza Ebrahimvandi</strong>, Niyousha Hosseinichimeh</p>
+                <p class="pub-venue">System Dynamics Conference, New Mexico</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2018</span>
+              <div>
+                <p class="pub-title">Predicting Preterm Birth Using Machine Learning Techniques</p>
+                <p class="pub-authors"><strong>Alireza Ebrahimvandi</strong>, Niyousha Hosseinichimeh</p>
+                <p class="pub-venue">INFORMS Annual Meeting, Phoenix, Arizona</p>
+              </div>
+            </li>
+            <li class="pub">
+              <span class="pub-year">2017</span>
+              <div>
+                <p class="pub-title">Interstate Analysis of Variation in Infant Mortality, 2000–2014</p>
+                <p class="pub-authors"><strong>Alireza Ebrahimvandi</strong>, Niyousha Hosseinichimeh</p>
+                <p class="pub-venue">INFORMS Annual Meeting, Houston, Texas</p>
+              </div>
+            </li>
+          </ol>
+
+          <h3 class="subhead">Honors &amp; awards</h3>
+          <ul class="honors">
+            <li><span class="pub-year">2018</span><span>John White Graduate Student Award, Virginia Tech</span></li>
+            <li><span class="pub-year">2017</span><span>Scholarship, System Dynamics Summer School, MIT</span></li>
+            <li><span class="pub-year">2016</span><span>Second place, Society for Health Systems FlexSim Simulation Competition</span></li>
+            <li><span class="pub-year">2011</span><span>Admitted to the M.Sc. program at Tehran Polytechnic as an honor student, without an entrance examination</span></li>
+            <li><span class="pub-year"></span><span>Ranked second in B.Sc. class; honor student</span></li>
+            <li><span class="pub-year">2007</span><span>Top 1% of Iran’s nationwide university entrance exam (330,000 examinees)</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <div class="container section-grid">
+        <div class="section-head">
+          <h2 id="skills-title">Skills</h2>
+          <p class="section-intro">Methods and tools I use to take models from research to production.</p>
+        </div>
+        <div class="section-body">
+          <dl class="skill-list">
+            <div class="skill-row">
+              <dt>Machine learning &amp; AI</dt>
+              <dd>
+                <ul class="chips">
+                  <li>Large language models</li>
+                  <li>Model evaluation &amp; monitoring</li>
+                  <li>Neural networks</li>
+                  <li>Gradient boosting (GBM)</li>
+                  <li>Bayesian optimization</li>
+                  <li>Surrogate modeling</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>Programming</dt>
+              <dd>
+                <ul class="chips">
+                  <li>Python</li>
+                  <li>R</li>
+                  <li>SQL</li>
+                  <li>C/C++</li>
+                  <li>MATLAB</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>Statistics</dt>
+              <dd>
+                <ul class="chips">
+                  <li>SAS</li>
+                  <li>RStudio</li>
+                  <li>Stata</li>
+                  <li>Minitab</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>Operations research</dt>
+              <dd>
+                <ul class="chips">
+                  <li>GAMS</li>
+                  <li>LINGO</li>
+                  <li>CPLEX</li>
+                  <li>Excel Solver</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>Simulation &amp; system dynamics</dt>
+              <dd>
+                <ul class="chips">
+                  <li>Simio</li>
+                  <li>Arena</li>
+                  <li>AnyLogic</li>
+                  <li>FlexSim</li>
+                  <li>Vensim</li>
+                  <li>STELLA</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="skill-row">
+              <dt>Cloud, data &amp; BI</dt>
+              <dd>
+                <ul class="chips">
+                  <li>AWS SageMaker</li>
+                  <li>AWS Lambda</li>
+                  <li>AWS CloudWatch</li>
+                  <li>Spark</li>
+                  <li>Tableau</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div>
+          <h2 id="contact-title">Let’s connect</h2>
+          <p>I’m always open to discussing new projects, research collaborations, and opportunities in data science and healthcare AI. The best way to reach me is on LinkedIn.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-light" href="https://www.linkedin.com/in/ebrahimvandi/" target="_blank" rel="me noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            Message me on LinkedIn
+          </a>
+          <a class="btn btn-ghost" href="https://orcid.org/0000-0002-6338-2662" target="_blank" rel="me noopener">ORCID</a>
+          <a class="btn btn-ghost" href="https://github.com/ebrahimvandi" target="_blank" rel="me noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year>2026</span> Alireza Ebrahimvandi</p>
+      <p><a href="#top">Back to top ↑</a></p>
+    </div>
+  </footer>
 </body>
 </html>
