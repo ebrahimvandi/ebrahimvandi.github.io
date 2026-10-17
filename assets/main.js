@@ -73,7 +73,7 @@
   };
 
   toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
-  links.forEach((a) => a.addEventListener("click", () => setOpen(false)));
+  nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && header.classList.contains("nav-open")) {
