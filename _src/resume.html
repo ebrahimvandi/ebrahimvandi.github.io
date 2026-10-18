@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alireza Ebrahimvandi, PhD | Résumé</title>
+  <meta name="author" content="Alireza Ebrahimvandi">
+  <meta name="robots" content="noindex">
+  <style>
+    /* Source for Alireza-Ebrahimvandi-Resume.pdf (see README for the rebuild command).
+       Underscore folders aren't published by GitHub Pages, so only the PDF goes live. */
+    @font-face {
+      font-family: "Inter";
+      font-style: normal;
+      font-weight: 400 700;
+      src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: normal;
+      font-weight: 400;
+      src: url("../assets/fonts/instrument-serif-latin.woff2") format("woff2");
+    }
+
+    @page {
+      size: letter;
+      margin: 0.5in 0.6in 0.5in;
+    }
+
+    :root {
+      --ink: #0a1628;
+      --text: #283445;
+      --muted: #5e6b7d;
+      --line: #d5dce6;
+      --accent: #0f766e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: #eef1f5;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 9.4pt;
+      line-height: 1.42;
+      /* Plain glyphs and straight apostrophes keep the PDF text clean for applicant-tracking systems */
+      font-variant-ligatures: none;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 8.5in;
+      margin: 32px auto;
+      padding: 0.5in 0.6in;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(10, 22, 40, 0.08), 0 12px 40px -12px rgba(10, 22, 40, 0.18);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    ol {
+      margin: 0;
+    }
+
+    /* --- Header --- */
+    .head {
+      padding-bottom: 10pt;
+      border-bottom: 1.2pt solid var(--ink);
+    }
+
+    .name {
+      color: var(--ink);
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 27pt;
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+
+    .name span {
+      color: var(--muted);
+      font-size: 0.62em;
+    }
+
+    .title {
+      margin-top: 4pt;
+      color: var(--ink);
+      font-size: 10.6pt;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .contact {
+      margin-top: 4pt;
+      color: var(--muted);
+      font-size: 8.6pt;
+    }
+
+    .contact a {
+      color: var(--text);
+    }
+
+    .contact .item {
+      white-space: nowrap;
+    }
+
+    .contact .sep {
+      margin: 0 5pt;
+      color: var(--line);
+    }
+
+    /* --- Sections --- */
+    section {
+      margin-top: 12pt;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 8pt;
+      margin-bottom: 6pt;
+      color: var(--accent);
+      font-size: 7.8pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      break-after: avoid;
+    }
+
+    h2::after {
+      content: "";
+      flex: 1;
+      border-top: 0.6pt solid var(--line);
+    }
+
+    .summary {
+      color: var(--text);
+      font-size: 9.6pt;
+      line-height: 1.5;
+    }
+
+    .competencies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3pt 0;
+      margin-top: 7pt;
+      padding: 0;
+      list-style: none;
+      color: var(--ink);
+      font-size: 8.6pt;
+      font-weight: 500;
+    }
+
+    .competencies li:not(:last-child)::after {
+      content: "·";
+      margin: 0 6pt;
+      color: var(--muted);
+    }
+
+    /* --- Experience --- */
+    .job + .job {
+      margin-top: 9pt;
+    }
+
+    .job-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12pt;
+    }
+
+    .job h3 {
+      color: var(--ink);
+      font-size: 10pt;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+    }
+
+    .job h3 .role {
+      font-weight: 400;
+    }
+
+    .when {
+      flex: none;
+      color: var(--muted);
+      font-size: 8.6pt;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .context {
+      margin-top: 1pt;
+      color: var(--muted);
+      font-size: 8.8pt;
+      font-style: italic;
+    }
+
+    .bullets {
+      margin-top: 3pt;
+      padding-left: 12pt;
+    }
+
+    .bullets li {
+      padding-left: 2pt;
+    }
+
+    .bullets li + li {
+      margin-top: 2pt;
+    }
+
+    .bullets li::marker {
+      color: var(--accent);
+    }
+
+    /* --- Education, publications, lists --- */
+    .lines {
+      padding: 0;
+      list-style: none;
+    }
+
+    .lines li + li {
+      margin-top: 4pt;
+    }
+
+    .lines strong,
+    .pubs strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .cites {
+      font-size: 8.7pt;
+      line-height: 1.4;
+    }
+
+    .note {
+      display: block;
+      color: var(--muted);
+      font-size: 8.7pt;
+    }
+
+    .pubs {
+      padding-left: 14pt;
+      font-size: 8.7pt;
+      line-height: 1.4;
+    }
+
+    .pubs li {
+      padding-left: 2pt;
+    }
+
+    .pubs li + li {
+      margin-top: 3pt;
+    }
+
+    .pubs li::marker {
+      color: var(--muted);
+      font-size: 8pt;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1.75in 1fr;
+      gap: 4pt 10pt;
+      margin: 0;
+      font-size: 8.9pt;
+    }
+
+    .skills dt {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .skills dd {
+      margin: 0;
+    }
+
+    .keep {
+      break-inside: avoid;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    @media print {
+      html {
+        background: none;
+      }
+
+      .page {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+    }
+
+    @media screen and (max-width: 8.6in) {
+      .page {
+        width: auto;
+        margin: 0;
+        padding: 28px 20px;
+        box-shadow: none;
+      }
+
+      .job-head {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .skills dd {
+        margin-bottom: 6pt;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="head">
+      <h1 class="name">Alireza Ebrahimvandi<span>, PhD</span></h1>
+      <p class="title">Data Scientist · Clinical AI, LLMs, Model Validation and Monitoring, Forecasting, and Simulation</p>
+      <p class="contact"><span class="item">San Francisco, CA</span><span class="sep">|</span><span class="item"><a href="https://ebrahimvandi.github.io/">ebrahimvandi.github.io</a></span><span class="sep">|</span><span class="item"><a href="https://www.linkedin.com/in/ebrahimvandi/">linkedin.com/in/ebrahimvandi</a></span><span class="sep">|</span><span class="item"><a href="https://github.com/ebrahimvandi">github.com/ebrahimvandi</a></span></p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">Data scientist with 10+ years in healthcare analytics and research, 6+ in health systems. Current work at UCSF Health spans validation and monitoring of clinical AI models, LLM-based summarization of inpatient notes, and forecasting and simulation for hospital capacity and patient flow. Previously built simulations that cut emergency department wait times by 2–4 hours and COVID-19 forecasts that outperformed external benchmarks.</p>
+      <ul class="competencies">
+        <li>Clinical AI</li>
+        <li>Machine learning</li>
+        <li>Large language models (LLMs)</li>
+        <li>LLM evaluation</li>
+        <li>Model validation and monitoring</li>
+        <li>Predictive modeling</li>
+        <li>Forecasting</li>
+        <li>Causal inference</li>
+        <li>Discrete-event simulation</li>
+        <li>System dynamics</li>
+        <li>Operations research</li>
+        <li>Python, R, SQL</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <article class="job keep">
+        <div class="job-head">
+          <h3>UCSF Health<span class="role">, Data Scientist</span></h3>
+          <p class="when">Apr 2022 – Present · San Francisco, CA</p>
+        </div>
+        <p class="context">AI and machine-learning tools for patient care and hospital operations.</p>
+        <ul class="bullets">
+          <li>Validate AI models for production use and monitor their performance after deployment; projects include Epic's <span class="nowrap">30-day</span> readmission model, LLM-based cancer clinical-trial matching, 1-year admission and ED-visit risk models, and Inpatient Insights.</li>
+          <li>Build and validate LLM-based summarization of inpatient notes, hospital course, and discharge instructions.</li>
+          <li>Develop real-time bed-availability prediction models for the Patient Capacity Management Center.</li>
+          <li>Build simulation frameworks that optimize patient flow and inform strategic decisions such as MRI capacity expansion.</li>
+        </ul>
+      </article>
+      <article class="job keep">
+        <div class="job-head">
+          <h3>University of Maryland Medical System<span class="role">, Healthcare Data Scientist</span></h3>
+          <p class="when">Dec 2019 – Apr 2022 · Linthicum Heights, MD</p>
+        </div>
+        <p class="context">Process improvement and predictive analytics.</p>
+        <ul class="bullets">
+          <li>Built discrete-event simulations that cut emergency department wait times by 2–4 hours.</li>
+          <li>Developed COVID-19 hospitalization and ICU forecasting models that outperformed external benchmarks.</li>
+          <li>Designed quasi-experimental studies to inform executive leadership on improving patient satisfaction.</li>
+        </ul>
+      </article>
+      <article class="job keep">
+        <div class="job-head">
+          <h3>Virginia Tech<span class="role">, Graduate Research Assistant</span></h3>
+          <p class="when">Aug 2016 – Dec 2019 · Blacksburg, VA</p>
+        </div>
+        <p class="context">Doctoral research on infant mortality and preterm birth.</p>
+        <ul class="bullets">
+          <li>Built system-dynamics and predictive models of infant mortality and preterm birth for a project funded by the Ohio Department of Medicaid.</li>
+          <li>Applied machine learning to U.S. birth records to identify early signs of preterm birth; first-authored the resulting 2022 journal article and released the code on GitHub.</li>
+          <li>Analyzed state-level variation in U.S. infant mortality from 2000 to 2015 and co-authored a data envelopment analysis benchmarking states' healthcare systems on birth outcomes.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="keep">
+      <h2>Education</h2>
+      <ul class="lines">
+        <li><strong>PhD, Industrial and Systems Engineering</strong>, Virginia Tech<span class="note">Dissertation: Three Essays on Analysis of U.S. Infant Mortality Using Systems and Data Science Approaches</span></li>
+        <li><strong>MS, Industrial and Systems Engineering</strong>, Virginia Tech<span class="note">Concentration in Operations Research</span></li>
+      </ul>
+    </section>
+
+    <section class="keep">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Machine learning and AI</dt>
+        <dd>Large language models (LLMs), model validation and monitoring, neural networks, gradient boosting (GBM), Bayesian optimization, surrogate modeling</dd>
+        <dt>Programming</dt>
+        <dd>Python, R, SQL, C/C++, MATLAB</dd>
+        <dt>Statistics and causal inference</dt>
+        <dd>Quasi-experimental design, forecasting; SAS, Stata</dd>
+        <dt>Simulation and operations research</dt>
+        <dd>Discrete-event simulation (Simio, Arena, AnyLogic, FlexSim); system dynamics and group model building (Vensim, STELLA); data envelopment analysis; optimization (GAMS, CPLEX, LINGO)</dd>
+        <dt>Cloud, data, and BI</dt>
+        <dd>AWS (SageMaker, Lambda, CloudWatch), Spark, Tableau</dd>
+        <dt>Healthcare domains</dt>
+        <dd>Readmission, admission, and ED-visit risk; inpatient-note summarization; cancer clinical-trial matching; bed capacity and patient flow; emergency department operations; COVID-19 hospitalization and ICU forecasting; infant mortality and preterm birth</dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Publications</h2>
+      <ol class="pubs">
+        <li><strong>Ebrahimvandi A</strong>, Hosseinichimeh N, Kong ZJ. Identifying the early signs of preterm birth from U.S. birth records using machine learning techniques. <em>Information</em>. 2022;13(7):310. doi:10.3390/info13070310</li>
+        <li>Darabi N, <strong>Ebrahimvandi A</strong>, Hosseinichimeh N, Triantis K. A DEA evaluation of U.S. states' healthcare systems in terms of their birth outcomes. <em>Expert Systems with Applications</em>. 2021;182:115278. doi:10.1016/j.eswa.2021.115278</li>
+        <li><strong>Ebrahimvandi A</strong>, Hosseinichimeh N, Iams JD. Understanding state-level variations in the US infant mortality: 2000 to 2015. <em>American Journal of Perinatology</em>. 2019;36(12):1271–1277. doi:10.1055/s-0038-1675835</li>
+        <li>Hosseinichimeh N, Kim H, <strong>Ebrahimvandi A</strong>, Iams JD, Andersen D. Using a stakeholder analysis to improve systems modelling of health issues: the impact of progesterone therapy on infant mortality in Ohio. <em>Systems Research and Behavioral Science</em>. 2019;36(4):476–493. doi:10.1002/sres.2563</li>
+        <li>Ghaffarzadegan N, Larson RC, Fingerhut H, Jalali MS, <strong>Ebrahimvandi A</strong>, Quaadgras A, Kochan T. Model-based policy analysis to mitigate post-traumatic stress disorder. In: <em>Policy Analytics, Modelling, and Informatics</em>. Springer; 2018:387–406. doi:10.1007/978-3-319-61762-6_17</li>
+        <li>Hosseinichimeh N, MacDonald R, Hyder A, <strong>Ebrahimvandi A</strong>, et al. Group model building techniques for rapid elicitation of parameter values, effect sizes, and data sources. <em>System Dynamics Review</em>. 2017;33(1):71–84. doi:10.1002/sdr.1575</li>
+        <li>Ghaffarzadegan N, <strong>Ebrahimvandi A</strong>, Jalali MS. A dynamic model of post-traumatic stress disorder for military personnel and veterans. <em>PLOS ONE</em>. 2016;11(10):e0161405. doi:10.1371/journal.pone.0161405 (covered by <em>Newsweek</em> and <em>Business Insider</em>)</li>
+      </ol>
+    </section>
+
+    <section class="keep">
+      <h2>Presentations</h2>
+      <ul class="lines cites">
+        <li>System modeling of a health issue: the case of preterm birth in Ohio. Presented at: International Conference of the System Dynamics Society; 2019; Albuquerque, NM.</li>
+        <li>Predicting preterm birth using machine learning techniques. Presented at: INFORMS Annual Meeting; 2018; Phoenix, AZ.</li>
+        <li>Interstate analysis of variation in infant mortality, 2000–2014. Presented at: INFORMS Annual Meeting; 2017; Houston, TX.</li>
+      </ul>
+    </section>
+
+    <section class="keep">
+      <h2>Honors</h2>
+      <ul class="lines">
+        <li><strong>John White Graduate Student Award</strong>, Virginia Tech, 2018</li>
+        <li><strong>Scholarship, System Dynamics Summer School</strong>, MIT, 2017</li>
+        <li><strong>Second place, FlexSim Simulation Competition</strong>, Society for Health Systems, 2016</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

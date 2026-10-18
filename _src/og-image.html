@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Social preview source</title>
+  <meta name="robots" content="noindex">
+  <style>
+    /* Source for assets/og-image.png (1200 x 630). See README for the rebuild command. */
+    @font-face {
+      font-family: "Inter";
+      font-weight: 400 700;
+      src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Instrument Serif";
+      font-style: italic;
+      src: url("../assets/fonts/instrument-serif-italic-latin.woff2") format("woff2");
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 1200px;
+      height: 630px;
+      margin: 0;
+      overflow: hidden;
+      background: #050b17;
+    }
+
+    body {
+      position: relative;
+      isolation: isolate;
+      color: #f4f7fb;
+      font-family: "Inter", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .aurora {
+      position: absolute;
+      inset: -25% -15%;
+      z-index: -1;
+      background:
+        radial-gradient(34% 40% at 22% 30%, rgba(13, 148, 136, 0.42), transparent 70%),
+        radial-gradient(32% 38% at 78% 16%, rgba(37, 99, 235, 0.38), transparent 70%),
+        radial-gradient(26% 34% at 58% 56%, rgba(99, 102, 241, 0.2), transparent 72%);
+    }
+
+    .gridlines {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-position: center top;
+      background-size: 72px 72px;
+      -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000 25%, transparent 75%);
+      mask-image: radial-gradient(ellipse 75% 60% at 50% 0%, #000 25%, transparent 75%);
+    }
+
+    .top {
+      position: absolute;
+      top: 60px;
+      left: 72px;
+      right: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chips {
+      display: flex;
+      gap: 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 48px;
+      padding: 0 20px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: #b4c0d0;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #5eead4;
+      box-shadow: 0 0 12px rgba(94, 234, 212, 0.8);
+    }
+
+    .url {
+      color: #8393a8;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    h1 {
+      position: absolute;
+      top: 166px;
+      left: 68px;
+      margin: 0;
+      color: #fff;
+      font-size: 88px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    p {
+      position: absolute;
+      top: 282px;
+      left: 72px;
+      margin: 0;
+      color: #9fb0c8;
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    em {
+      padding-right: 0.08em;
+      font-family: "Instrument Serif", Georgia, serif;
+      font-size: 1.1em;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.005em;
+      background-image: linear-gradient(95deg, #5eead4 0%, #7dd3fc 52%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .chart {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 40px;
+      height: 170px;
+    }
+
+    .hc-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    }
+
+    .hc-grid line {
+      stroke: rgba(255, 255, 255, 0.07);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .hc-obs path,
+    .hc-line {
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .hc-obs path {
+      stroke: #7b8ba3;
+    }
+
+    .hc-line {
+      stroke: #0d9488;
+      filter: drop-shadow(0 0 6px rgba(13, 148, 136, 0.9));
+    }
+
+    .hc-now {
+      stroke: rgba(255, 255, 255, 0.24);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .hc-dot {
+      position: absolute;
+      left: 62.5%;
+      top: 54.7%;
+      width: 14px;
+      height: 14px;
+      margin: -7px 0 0 -7px;
+      border-radius: 50%;
+      background: #0d9488;
+      box-shadow: 0 0 0 3px #050b17, 0 0 0 5px rgba(94, 234, 212, 0.7), 0 0 22px 4px rgba(13, 148, 136, 0.85);
+    }
+  </style>
+</head>
+<body>
+  <div class="aurora"></div>
+  <div class="gridlines"></div>
+
+  <div class="top">
+    <div class="chips">
+      <span class="chip"><span class="dot"></span>Data Scientist at UCSF Health</span>
+      <span class="chip">PhD · Virginia Tech</span>
+    </div>
+    <span class="url">ebrahimvandi.github.io</span>
+  </div>
+
+  <h1>Alireza Ebrahimvandi</h1>
+  <p>I build, validate, and monitor <em>clinical AI.</em></p>
+
+  <div class="chart">
+    <svg class="hc-svg" viewBox="0 0 1440 240" preserveAspectRatio="none">
+      <defs><linearGradient id="hc-band-fill" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#0d9488" stop-opacity=".2"/><stop offset="1" stop-color="#0d9488" stop-opacity=".05"/></linearGradient></defs>
+      <g class="hc-grid"><line x1="0" x2="1440" y1="60" y2="60"/><line x1="0" x2="1440" y1="120" y2="120"/><line x1="0" x2="1440" y1="180" y2="180"/></g>
+      <g class="hc-obs"><path d="M0,161.2L7.5,144.6L15,127L22.5,120L30,114.3L37.5,116.9L45,110.7L52.5,104.7L60,99.5L67.5,111.8L75,117.4L82.5,120.7L90,115.5L97.5,117.7L105,132.7L112.5,132.5L120,146L127.5,158.7L135,168.4L142.5,166.3L150,176.6L157.5,174.4L165,160.5L172.5,159.1L180,145.5L187.5,129.6L195,128.7L202.5,118.8L210,107.1L217.5,114.2L225,116L232.5,116.2L240,117.9L247.5,103.8L255,109.1L262.5,109.6L270,115.5L277.5,115.3L285,123.5L292.5,127.2L300,133.4L307.5,149.6L315,161.3L322.5,162.9L330,163.1L337.5,164.6L345,175.9L352.5,162.7L360,153.5L367.5,134.3L375,128.1L382.5,126.9L390,119.3L397.5,116L405,122.6L412.5,111.3L420,101.9L427.5,107.3L435,106.4L442.5,111.1L450,110L457.5,110.7L465,108.9L472.5,122.3L480,124.6L487.5,133.2L495,147.8L502.5,151.3L510,168.7L517.5,176.2L525,174.4L532.5,161L540,138.6L547.5,127.8L555,114.3L562.5,108.4L570,102L577.5,99L585,99.4L592.5,102.6L600,103.5L607.5,105.3L615,101.3L622.5,108.9L630,102.7L637.5,110L645,122.2L652.5,122.4L660,125.3L667.5,145.1L675,159.8L682.5,161.5L690,162.3L697.5,159.9L705,158.1L712.5,145.7L720,139.5L727.5,126.2L735,112.6L742.5,111.3L750,105.9L757.5,101.4L765,102L772.5,105.5L780,113.5L787.5,101.2L795,99.7L802.5,97.8L810,97.5L817.5,102.2L825,106.5L832.5,115.3L840,121.5L847.5,140.2L855,151.4L862.5,156L870,155.6L877.5,158.2L885,158.7L892.5,140.4L900,131.3"/></g>
+      <g class="hc-fc"><path class="hc-band" d="M900,128.3L907.5,114L915,103.4L922.5,95.3L930,89.9L937.5,86.9L945,85.7L952.5,85.1L960,84.6L967.5,83.8L975,82.8L982.5,82.1L990,82.7L997.5,85.4L1005,90.8L1012.5,98.7L1020,108.4L1027.5,118.7L1035,128L1042.5,134.7L1050,137.5L1057.5,135.9L1065,130.1L1072.5,120.9L1080,110L1087.5,98.8L1095,88.9L1102.5,81.2L1110,76.2L1117.5,73.5L1125,72.4L1132.5,72L1140,71.7L1147.5,71L1155,70.1L1162.5,69.7L1170,70.4L1177.5,73.3L1185,78.8L1192.5,86.8L1200,96.7L1207.5,107.1L1215,116.6L1222.5,123.4L1230,126.3L1237.5,124.8L1245,119.1L1252.5,110.1L1260,99.3L1267.5,88.2L1275,78.4L1282.5,70.9L1290,65.9L1297.5,63.3L1305,62.3L1312.5,62L1320,61.8L1327.5,61.2L1335,60.4L1342.5,60L1350,60.9L1357.5,63.8L1365,69.4L1372.5,77.5L1380,87.4L1387.5,97.9L1395,107.4L1402.5,114.3L1410,117.3L1417.5,115.9L1425,110.3L1432.5,101.3L1440,90.5L1440,168.6L1432.5,178.9L1425,187.3L1417.5,192.4L1410,193.3L1402.5,189.8L1395,182.4L1387.5,172.4L1380,161.3L1372.5,150.9L1365,142.2L1357.5,136.1L1350,132.6L1342.5,131.2L1335,131.1L1327.5,131.3L1320,131.3L1312.5,131L1305,130.7L1297.5,131.1L1290,133.1L1282.5,137.5L1275,144.5L1267.5,153.7L1260,164.1L1252.5,174.3L1245,182.7L1237.5,187.8L1230,188.6L1222.5,185L1215,177.6L1207.5,167.5L1200,156.4L1192.5,145.8L1185,137.1L1177.5,130.9L1170,127.4L1162.5,125.9L1155,125.7L1147.5,125.8L1140,125.7L1132.5,125.3L1125,124.9L1117.5,125.2L1110,127.1L1102.5,131.4L1095,138.2L1087.5,147.3L1080,157.6L1072.5,167.7L1065,175.9L1057.5,180.8L1050,181.5L1042.5,177.7L1035,170L1027.5,159.7L1020,148.4L1012.5,137.5L1005,128.5L997.5,122.1L990,118.1L982.5,116.3L975,115.6L967.5,115.3L960,114.7L952.5,113.6L945,112.5L937.5,111.9L930,112.9L922.5,116L915,121.4L907.5,128.5L900,134.3Z" fill="url(#hc-band-fill)"/><path class="hc-line" d="M900,131.3L907.5,121.3L915,112.4L922.5,105.6L930,101.4L937.5,99.4L945,99.1L952.5,99.4L960,99.6L967.5,99.5L975,99.2L982.5,99.2L990,100.4L997.5,103.8L1005,109.7L1012.5,118.1L1020,128.4L1027.5,139.2L1035,149L1042.5,156.2L1050,159.5L1057.5,158.3L1065,153L1072.5,144.3L1080,133.8L1087.5,123L1095,113.6L1102.5,106.3L1110,101.6L1117.5,99.3L1125,98.6L1132.5,98.7L1140,98.7L1147.5,98.4L1155,97.9L1162.5,97.8L1170,98.9L1177.5,102.1L1185,108L1192.5,116.3L1200,126.5L1207.5,137.3L1215,147.1L1222.5,154.2L1230,157.5L1237.5,156.3L1245,150.9L1252.5,142.2L1260,131.7L1267.5,121L1275,111.5L1282.5,104.2L1290,99.5L1297.5,97.2L1305,96.5L1312.5,96.5L1320,96.6L1327.5,96.3L1335,95.8L1342.5,95.6L1350,96.8L1357.5,100L1365,105.8L1372.5,114.2L1380,124.4L1387.5,135.2L1395,144.9L1402.5,152.1L1410,155.3L1417.5,154.2L1425,148.8L1432.5,140.1L1440,129.6"/></g>
+      <line class="hc-now" x1="900" x2="900" y1="0" y2="240"/>
+      </svg>
+    <span class="hc-dot"></span>
+  </div>
+</body>
+</html>
