@@ -68,3 +68,15 @@ doesn't point at it; that's expected.
 | `d45cb716debc45d61e73653540e3335a.txt` | [IndexNow](https://www.indexnow.org/) key for Bing/Yandex re-crawl requests |
 | `favicon.ico`, `assets/*.png` | Icons and the social-share preview image |
 | `assets/fonts/` | Self-hosted Inter, Instrument Serif, and Geist Mono (SIL Open Font License) |
+
+## Security and caching
+
+`_cloudflare/worker.js` adds security headers to every response: HTTPS-only (HSTS), a strict Content
+Security Policy, and no framing, sniffing, or camera/microphone/location access. It also sets cache lifetimes
+(fonts a year, images and the PDF a day, CSS/JS an hour, pages always fresh), and 301-redirects the old
+`/about.html`-style URLs to their homepage sections.
+
+The Content Security Policy only runs scripts from this site, Cloudflare Web Analytics, and inline
+`<script>` blocks listed by hash in `SCRIPT_HASHES`. **If you edit an inline script, update its hash**:
+the browser console shows the expected `sha256-…` value when it blocks the script. If you replace a font
+file, rename it, since browsers cache fonts for a year.
