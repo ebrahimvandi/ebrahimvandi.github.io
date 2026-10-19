@@ -25,5 +25,5 @@ I welcome conversations about clinical AI, health-system analytics, research col
 ## Featured
 
 Add the website and the PDF résumé under **Featured → Add a link**:
-- https://ebrahimvandi.github.io/
-- https://ebrahimvandi.github.io/Alireza-Ebrahimvandi-Resume.pdf
+- https://ebrahimvandi.com/
+- https://ebrahimvandi.com/Alireza-Ebrahimvandi-Resume.pdf

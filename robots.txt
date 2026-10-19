@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ebrahimvandi.github.io/sitemap.xml
+Sitemap: https://ebrahimvandi.com/sitemap.xml
