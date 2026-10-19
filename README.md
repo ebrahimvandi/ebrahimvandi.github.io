@@ -1,9 +1,10 @@
-# ebrahimvandi.github.io
+# ebrahimvandi.com
 
 Personal website of **Alireza Ebrahimvandi, PhD** — Data Scientist at UCSF Health.
-Live at **https://ebrahimvandi.github.io/**
+Live at **https://ebrahimvandi.com/**
 
 Plain HTML/CSS with no build step. GitHub Pages publishes the `main` branch automatically.
+The old address, `ebrahimvandi.github.io`, redirects to the domain.
 
 ## Editing
 
@@ -28,6 +29,23 @@ Start-Process $chrome -Wait -ArgumentList ($common + "--hide-scrollbars", "--win
 
 The PDF should stay at two pages. GitHub Pages doesn't publish folders that start with `_`, so `_src/` never appears on the website.
 
+## Domain
+
+`ebrahimvandi.com` is registered at Cloudflare. The `CNAME` file tells GitHub Pages to serve the site there,
+and Cloudflare's DNS points the domain at GitHub Pages:
+
+| Name | Type | Value |
+| --- | --- | --- |
+| `@` | A | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
+| `@` | AAAA | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
+| `www` | CNAME | `ebrahimvandi.github.io` (GitHub redirects `www` to the bare domain) |
+| `@` | TXT | `v=spf1 -all` (the domain sends no email; this and the DMARC record stop others faking it) |
+| `_dmarc` | TXT | `v=DMARC1; p=reject;` |
+| `_github-pages-challenge-ebrahimvandi` | TXT | Verification code from GitHub → Settings → Pages (protects the domain from takeover) |
+
+Keep every record **DNS only** (grey cloud), not proxied: GitHub Pages issues the HTTPS certificate,
+and it can't while Cloudflare's proxy is on. Keep auto-renew on in Cloudflare so the domain doesn't lapse.
+
 ## Files
 
 | Path | Purpose |
@@ -37,6 +55,7 @@ The PDF should stay at two pages. GitHub Pages doesn't publish folders that star
 | `_src/` | Sources for the PDF résumé and the social-share image, plus matching LinkedIn copy (not published) |
 | `about.html`, `experience.html`, … | Redirects from the old multi-page URLs to the matching section |
 | `404.html` | Not-found page |
+| `CNAME` | The custom domain, for GitHub Pages |
 | `robots.txt`, `sitemap.xml` | Crawler instructions and sitemap |
 | `d45cb716debc45d61e73653540e3335a.txt` | [IndexNow](https://www.indexnow.org/) key for Bing/Yandex re-crawl requests |
 | `favicon.ico`, `assets/*.png` | Icons and the social-share preview image |
