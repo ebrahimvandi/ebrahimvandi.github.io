@@ -1,10 +1,10 @@
 # ebrahimvandi.com
 
 Personal website of **Alireza Ebrahimvandi, PhD** — Data Scientist at UCSF Health.
-Live at **https://ebrahimvandi.com/**
+Live at **<https://ebrahimvandi.com/>**
 
-Plain HTML/CSS with no build step. GitHub Pages publishes the `main` branch automatically.
-The old address, `ebrahimvandi.github.io`, redirects to the domain.
+Plain HTML/CSS with no build step, hosted on Cloudflare (free plan). The old address,
+`ebrahimvandi.github.io`, forwards every page to the domain.
 
 ## Editing
 
@@ -15,6 +15,20 @@ The old address, `ebrahimvandi.github.io`, redirects to the domain.
 - **Social-share image:** edit `_src/og-image.html`, then rebuild `assets/og-image.png` (below).
 - **After a content change,** bump `dateModified` in the JSON-LD block of `index.html`
   and `<lastmod>` in `sitemap.xml` so search engines re-crawl.
+- **Then publish** (below).
+
+## Publishing
+
+From the repository root, after committing to `main`:
+
+```powershell
+npx wrangler deploy
+```
+
+This uploads the folder to the Cloudflare Worker `ebrahimvandi` (config in `wrangler.jsonc`), which serves
+`ebrahimvandi.com`. The first run asks you to log in to Cloudflare in the browser. `.assetsignore` keeps
+`_src/`, `_cloudflare/`, the README, and the deployment config off the website.
+`_cloudflare/worker.js` sends `www`, `http://`, and any other address to `https://ebrahimvandi.com`.
 
 ## Rebuilding the PDF and share image
 
@@ -27,24 +41,17 @@ Start-Process $chrome -Wait -ArgumentList ($common + "--no-pdf-header-footer", "
 Start-Process $chrome -Wait -ArgumentList ($common + "--hide-scrollbars", "--window-size=1200,630", "--screenshot=$PWD\assets\og-image.png", "$PWD\_src\og-image.html")
 ```
 
-The PDF should stay at two pages. GitHub Pages doesn't publish folders that start with `_`, so `_src/` never appears on the website.
+The PDF should stay at two pages.
 
 ## Domain
 
-`ebrahimvandi.com` is registered at Cloudflare. The `CNAME` file tells GitHub Pages to serve the site there,
-and Cloudflare's DNS points the domain at GitHub Pages:
+`ebrahimvandi.com` is registered at Cloudflare; keep auto-renew on so it doesn't lapse. `wrangler deploy`
+manages the DNS records for `ebrahimvandi.com` and `www.ebrahimvandi.com` and their HTTPS certificates.
 
-| Name | Type | Value |
-| --- | --- | --- |
-| `@` | A | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
-| `@` | AAAA | `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153` |
-| `www` | CNAME | `ebrahimvandi.github.io` (GitHub redirects `www` to the bare domain) |
-| `@` | TXT | `v=spf1 -all` (the domain sends no email; this and the DMARC record stop others faking it) |
-| `_dmarc` | TXT | `v=DMARC1; p=reject;` |
-| `_github-pages-challenge-ebrahimvandi` | TXT | Verification code from GitHub → Settings → Pages (protects the domain from takeover) |
-
-Keep every record **DNS only** (grey cloud), not proxied: GitHub Pages issues the HTTPS certificate,
-and it can't while Cloudflare's proxy is on. Keep auto-renew on in Cloudflare so the domain doesn't lapse.
+GitHub Pages still builds `main` at `ebrahimvandi.github.io`. Its custom domain is set to `ebrahimvandi.com`
+(the `CNAME` file), so GitHub redirects old `github.io` links to the same page on the domain. Leave Pages on
+and the `CNAME` file in place, or those old links stop working. GitHub will report that the domain's DNS
+doesn't point at it; that's expected.
 
 ## Files
 
@@ -55,7 +62,8 @@ and it can't while Cloudflare's proxy is on. Keep auto-renew on in Cloudflare so
 | `_src/` | Sources for the PDF résumé and the social-share image, plus matching LinkedIn copy (not published) |
 | `about.html`, `experience.html`, … | Redirects from the old multi-page URLs to the matching section |
 | `404.html` | Not-found page |
-| `CNAME` | The custom domain, for GitHub Pages |
+| `wrangler.jsonc`, `.assetsignore`, `_cloudflare/` | Cloudflare hosting config, publish exclusions, and redirect Worker |
+| `CNAME` | Makes GitHub Pages forward `ebrahimvandi.github.io` to the domain |
 | `robots.txt`, `sitemap.xml` | Crawler instructions and sitemap |
 | `d45cb716debc45d61e73653540e3335a.txt` | [IndexNow](https://www.indexnow.org/) key for Bing/Yandex re-crawl requests |
 | `favicon.ico`, `assets/*.png` | Icons and the social-share preview image |
