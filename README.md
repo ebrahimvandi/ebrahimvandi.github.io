@@ -13,6 +13,9 @@ Plain HTML/CSS with no build step, hosted on Cloudflare (free plan). The old add
 - **Charts** on the page are decorative inline SVG illustrations (no data); edit them in place in `index.html`.
 - **Résumé PDF:** edit `_src/resume.html`, then rebuild `Alireza-Ebrahimvandi-Resume.pdf` (below). Keep it in step with `index.html`.
 - **Social-share image:** edit `_src/og-image.html`, then rebuild `assets/og-image.png` (below).
+- **AI-agent copies:** `resume.md` (full résumé as Markdown) and `llms.txt` (short profile for AI assistants)
+  repeat the page's content as plain text. Keep them in step with `index.html`, along with the
+  publications listed in its JSON-LD block.
 - **After a content change,** bump `dateModified` in the JSON-LD block of `index.html`
   and `<lastmod>` in `sitemap.xml` so search engines re-crawl.
 - **Then publish** (below).

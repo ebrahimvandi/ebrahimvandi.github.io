@@ -64,6 +64,9 @@ export default {
     const response = new Response(asset.body, asset);
     for (const [name, value] of Object.entries(SECURITY_HEADERS)) response.headers.set(name, value);
     if (asset.ok) response.headers.set("Cache-Control", cacheControl(url.pathname));
+    // Plain-text copies for AI agents (llms.txt, resume.md) declare UTF-8 so accents survive.
+    if (asset.ok && url.pathname.endsWith(".md")) response.headers.set("Content-Type", "text/markdown; charset=utf-8");
+    else if (asset.ok && url.pathname.endsWith(".txt")) response.headers.set("Content-Type", "text/plain; charset=utf-8");
     return response;
   },
 };

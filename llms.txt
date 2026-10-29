@@ -1,0 +1,28 @@
+# Alireza Ebrahimvandi, PhD
+
+> Alireza Ebrahimvandi is a clinical AI data scientist at UCSF Health in San Francisco. He validates AI and machine-learning models for production use in a health system and monitors their performance after deployment, builds and evaluates large language model (LLM) summarization of inpatient clinical notes, and develops real-time bed-availability forecasting and patient-flow simulation for hospital operations. He holds a PhD in Industrial and Systems Engineering from Virginia Tech and has published peer-reviewed research applying machine learning and system dynamics to preterm birth, infant mortality, and PTSD.
+
+Areas of expertise: clinical AI, healthcare AI model validation and post-deployment monitoring, LLM evaluation for clinical text, LLM-based clinical summarization and clinical-trial matching, predictive modeling for readmission and utilization risk, healthcare forecasting, discrete-event simulation, causal inference, and operations research.
+
+## Profile
+
+- [Full résumé (Markdown)](https://ebrahimvandi.com/resume.md): experience, selected work, publications, and skills as plain text
+- [Website](https://ebrahimvandi.com/): the same content as a web page
+- [Résumé (PDF)](https://ebrahimvandi.com/Alireza-Ebrahimvandi-Resume.pdf): two-page résumé
+
+## Publications
+
+- [Identifying the Early Signs of Preterm Birth from U.S. Birth Records Using Machine Learning Techniques (Information, 2022)](https://doi.org/10.3390/info13070310): first author; code at https://github.com/ebrahimvandi/preterm_prediction
+- [A DEA Evaluation of U.S. States' Healthcare Systems in Terms of Their Birth Outcomes (Expert Systems with Applications, 2021)](https://doi.org/10.1016/j.eswa.2021.115278)
+- [Understanding State-Level Variations in the US Infant Mortality: 2000 to 2015 (American Journal of Perinatology, 2019)](https://doi.org/10.1055/s-0038-1675835): first author
+- [Using a Stakeholder Analysis to Improve Systems Modelling of Health Issues (Systems Research and Behavioral Science, 2019)](https://doi.org/10.1002/sres.2563)
+- [Group Model Building Techniques for Rapid Elicitation of Parameter Values, Effect Sizes, and Data Sources (System Dynamics Review, 2017)](https://doi.org/10.1002/sdr.1575)
+- [A Dynamic Model of Post-Traumatic Stress Disorder for Military Personnel and Veterans (PLOS ONE, 2016)](https://doi.org/10.1371/journal.pone.0161405)
+- [Three Essays on Analysis of U.S. Infant Mortality Using Systems and Data Science Approaches (PhD dissertation, Virginia Tech)](https://hdl.handle.net/10919/96266)
+
+## Profiles
+
+- [LinkedIn](https://www.linkedin.com/in/ebrahimvandi/): the best way to contact him
+- [ORCID](https://orcid.org/0000-0002-6338-2662)
+- [OpenAlex author record](https://openalex.org/A5002671771)
+- [GitHub](https://github.com/ebrahimvandi)
